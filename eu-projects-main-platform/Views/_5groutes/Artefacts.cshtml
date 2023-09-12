@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Artefacts";
+
+}
+
+<script src="~/eu_projects/5groutes/projectFiles/ExperimentResults.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/VisualiseKPIs.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/5groutesHelper.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/DataManagement.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/DropdownsHandlers.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/TablesInfoHandler.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/5groutesGraphs.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/5groutesFileInputHandler.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/ArtefactsHandler.js" asp-append-version="true"></script>
+
+<div class="row">
+    <div class="col-12 titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+    <div id="alert_block" class=" col-8 offset-2 alert alert-primary" role="alert">
+        <div class="row">
+            <div class="col-11"><h4 class="alert-heading">Notice!</h4></div>
+            <div class="col-1"><button onclick="DismissAlert()" class="btn"><i class="fa fa-close"></i></button></div>
+        </div>
+        <p>This section is reserved for uploading network artefacts to the CAM Repository. The following artefact types can be uploaded (<b>NS</b>, <b>VNF</b>, <b>CONTAINER</b>, <b>HELM</b>). The <b>HELM</b> file type accepts only <b>.tgz</b> extension. All the others allow <b>.tar.gz</b></p>
+        <hr>
+        <p class="mb-0" style="text-align: left">The order in which the artefacts must be uploaded is the following: 
+            <ol style="text-align: left">
+                <li>CONTAINER</li>
+                <li>HELM</li>
+                <li>VNF</li>
+                <li>NS</li>
+            </ol>
+        </p>
+        <i>Uploading existing file type will override the existing one!</i>
+    </div>
+</div>
+
+<div id="artefacts_block">
+    <div class="col-12 main-buttons-with-icons" style="text-align: right">
+        <button onclick="AddNewArtefact()" type="button">Add New Artefact <i class="marginicon fas fa-plus"></i></button>
+    </div>
+    <table id="artefact_table" class="display" style="width:100%">
+        <thead>
+        <tr>
+            <th style="display:none">Artefact ID</th>
+            <th>Artefact Type</th>
+            <th>Artefact File Name</th>
+            <th>Size</th>
+            <th>Uploaded</th>
+            <th>Action123</th>
+        </tr>
+        </thead>
+        <tbody id="artefact_table_body">
+        </tbody>
+    </table>
+</div>
+
+<div class="homemodal">
+    <div class="modal fade" id="5groutesmodal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

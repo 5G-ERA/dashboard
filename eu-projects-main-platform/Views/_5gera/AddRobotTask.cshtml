@@ -1,0 +1,56 @@
+﻿@model eu_projects_main_platform.Models._5gera.RobotTasks
+
+@{
+    ViewData["Title"] = "AddRobotTask";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AddRobotTask</h1>
+
+<h4>RobotTasks</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddRobotTask">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="robotName" class="control-label"></label>
+                <input asp-for="robotName" class="form-control" />
+                <span asp-validation-for="robotName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="robotId" class="control-label"></label>
+                <input asp-for="robotId" class="form-control" />
+                <span asp-validation-for="robotId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="taskName" class="control-label"></label>
+                <input asp-for="taskName" class="form-control" />
+                <span asp-validation-for="taskName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="taskId" class="control-label"></label>
+                <input asp-for="taskId" class="form-control" />
+                <span asp-validation-for="taskId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="taskStartTime" class="control-label"></label>
+                <input asp-for="taskStartTime" class="form-control" />
+                <span asp-validation-for="taskStartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="robotStatus" class="control-label"></label>
+                <input asp-for="robotStatus" class="form-control" />
+                <span asp-validation-for="robotStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Home">Back to List</a>
+</div>
+

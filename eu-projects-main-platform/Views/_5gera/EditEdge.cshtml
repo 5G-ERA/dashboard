@@ -1,0 +1,82 @@
+﻿@model eu_projects_main_platform.Models._5gera.EditEdge
+<br/>
+<h4>Edit Edge</h4>
+<hr />
+<br/>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditEdge">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="id" class="control-label"></label>
+                <input asp-for="id" class="form-control" />
+                <span asp-validation-for="id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="edgeStatus" class="control-label"></label>
+                <input asp-for="edgeStatus" class="form-control" />
+                <span asp-validation-for="edgeStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="edgeIp" class="control-label"></label>
+                <input asp-for="edgeIp" class="form-control" />
+                <span asp-validation-for="edgeIp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="macAddress" class="control-label"></label>
+                <input asp-for="macAddress" class="form-control" />
+                <span asp-validation-for="macAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cpu" class="control-label"></label>
+                <input asp-for="cpu" class="form-control" />
+                <span asp-validation-for="cpu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ram" class="control-label"></label>
+                <input asp-for="ram" class="form-control" />
+                <span asp-validation-for="ram" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="virtualRam" class="control-label"></label>
+                <input asp-for="virtualRam" class="form-control" />
+                <span asp-validation-for="virtualRam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="diskStorage" class="control-label"></label>
+                <input asp-for="diskStorage" class="form-control" />
+                <span asp-validation-for="diskStorage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="numberOfCores" class="control-label"></label>
+                <input asp-for="numberOfCores" class="form-control" />
+                <span asp-validation-for="numberOfCores" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="lastUpdatedTime" class="control-label"></label>
+                <input asp-for="lastUpdatedTime" class="form-control" />
+                <span asp-validation-for="lastUpdatedTime" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="isOnline" /> @Html.DisplayNameFor(model => model.isOnline)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-dark"><a asp-controller="Home" asp-action="Index" style="color:white">Back</a></button>
+                </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

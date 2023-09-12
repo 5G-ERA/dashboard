@@ -1,0 +1,758 @@
+﻿@{
+    ViewData["Title"] = "Visualise PIs";
+
+}
+<script src="~/eu_projects/5groutes/projectFiles/ExperimentResults.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/VisualiseKPIs.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/5groutesHelper.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/DataManagement.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/DropdownsHandlers.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/TablesInfoHandler.js" asp-append-version="true"></script>
+
+<div class="row">
+    <div class="col-12 titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+</div>
+
+<div class="usdescript-date">
+    <div class="row ucdescriptionchosen">
+        <div class="col-md-2 col-sm-12">
+            <label for="ucdescription">UC Description</label>
+
+
+        </div>
+        <div class="col-md-9 col-sm-10">
+            <select name="ucdesc" id="ucdesc_id">
+            </select>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <hr style="width:100%;text-align:center;margin-left:0">
+        </div>
+    </div>
+
+
+
+
+    <div class="generalinfoclass">
+
+        <div class="row">
+
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12">
+                            Use Case ID
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_id" readonly style="display: none">
+                            <input type="text" id="uc_id_string" readonly>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            Use Case Description
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_description_id" readonly>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            Category
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_category" readonly>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-sm-12 col-md-6">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12">
+                            Responsible
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_responsible_id" readonly>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            Contact
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_contact_id" readonly>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            Date
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="date" id="uc_date_id" readonly>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="errormessageusecase col-12">
+        </div>
+    </div>
+</div> @*end of general info div*@
+
+<div class="scenarioarea">
+
+    <div class="row scenariodescriptionchosen">
+        <div class="col-sm-2">
+            <label>Scenario Description</label>
+        </div>
+        <div class="col-sm-9">
+            <select name="cars" id="scenariodesc_id" disabled data-placeholder="Please choose UC Description First">
+            </select>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <hr style="width:100%;text-align:center;margin-left:0">
+        </div>
+    </div>
+
+
+
+    <div class="generalinfoclass">
+        <div class="accordion" id="KPItables">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne" onclick="VisualizeApplicationGraphs()">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Application KPIs
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#KPItables">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                @*START OF LEFT SIDE*@
+                                @*START OF LOCALISATION*@
+                                <div class="tablemain">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="headtabletitle">Localisation</div>
+                                        </div>
+                                        <div class="col-8 main-buttons-with-icons" style="text-align:right">
+                                            @*<input class="fa fa-input btn btn-primary  localisation_table_id_graph" type="button" value="Graph &#xf200" onclick="LocalizationGraph()">*@
+                                            @*<input class="fa fa-input btn btn-primary localisation_table_id_table tableviewbutton" type="button" value="Table &#xf0ce" onclick="LocalizationTableView()">*@
+                                            @*<input class="fa fa-input btn btn-primary  localisation_table_id_add" type="button" value="Add &#xf067" onclick="AddKpiHandler('Localisation')">*@
+                                            @*<input class="fa fa-input btn btn-primary  localisation_table_id_edit isDisabled" type="button" value="Edit &#xf044" onclick="EditKpiHandler('Localisation')">*@
+                                            @*<input class="fa fa-input btn btn-primary  localisation_table_id_delete isDisabled" type="button" value="Delete &#xf2ed" onclick="DeleteKPIHandler('Localisation')">*@
+                                            <button class="localisation_table_id_graph" onclick="LocalizationGraph()" type="button">Graph<i class="marginicon fas fa-chart-pie"></i></button>
+                                            <button class="localisation_table_id_table tableviewbutton" onclick="LocalizationTableView()" type="button">Table<i class="marginicon fas fa-table"></i></button>
+                                            <button class="localisation_table_id_add" onclick="AddKpiHandler('Localisation')" type="button">Add<i class="marginicon fas fa-plus"></i></button>
+                                            <button class="localisation_table_id_edit isDisabled" onclick="EditKpiHandler('Localisation')" type="button">Edit<i class="marginicon fas fa-edit"></i></button>
+                                            <button class="localisation_table_id_delete isDisabled" onclick="DeleteKPIHandler('Localisation')" type="button">Delete<i class="marginicon fas fa-trash"></i></button>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr style="width:100%;text-align:center;margin-left:0">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 table_class">
+                                        <div class="localisationtable">
+                                        </div>
+                                    </div>
+                                </div>
+                                @*END OF LOCALISATION*@
+
+                                <div class="paddingtop25px">
+                                </div>
+
+
+                                @*START OF TRAJECTORY*@
+                                <div class="tablemain">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="headtabletitle">Trajectory</div>
+                                        </div>
+                                        <div class="col-8 main-buttons-with-icons" style="text-align:right">
+                                            <button class="trajectory_table_id_graph" onclick="TrajectoryGraph()" type="button">Graph<i class="marginicon fas fa-chart-pie"></i></button>
+                                            <button class="trajectory_table_id_table tableviewbutton" onclick="TrajectoryTableView()" type="button">Table<i class="marginicon fas fa-table"></i></button>
+                                            <button class="trajectory_table_id_add" onclick="AddKpiHandler('Trajectory')" type="button">Add<i class="marginicon fas fa-plus"></i></button>
+                                            <button class="trajectory_table_id_edit isDisabled" onclick="EditKpiHandler('Trajectory')" type="button">Edit<i class="marginicon fas fa-edit"></i></button>
+                                            <button class="trajectory_table_id_delete isDisabled" onclick="DeleteKPIHandler('Trajectory')" type="button">Delete<i class="marginicon fas fa-trash"></i></button>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr style="width:100%;text-align:center;margin-left:0">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 table_class">
+                                        <div class="trajectorytable">
+                                        </div>
+                                    </div>
+                                </div>
+                                @*END OF TRAJECTORY*@
+
+
+
+
+
+                                <div class="paddingtop25px">
+                                </div>
+
+                                @*START OF SAFETY*@
+                                <div class="tablemain">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="headtabletitle">Safety</div>
+                                        </div>
+                                        <div class="col-8 main-buttons-with-icons" style="text-align:right">
+                                            <button class="safetytable_table_id_graph" onclick="SafetyGraph()" type="button">Graph<i class="marginicon fas fa-chart-pie"></i></button>
+                                            <button class="safetytable_table_id_table tableviewbutton" onclick="SafetyTableView()" type="button">Table<i class="marginicon fas fa-table"></i></button>
+                                            <button class="safetytable_table_id_add" onclick="AddKpiHandler('Safety')" type="button">Add<i class="marginicon fas fa-plus"></i></button>
+                                            <button class="safetytable_table_id_edit isDisabled" onclick="EditKpiHandler('Safety')" type="button">Edit<i class="marginicon fas fa-edit"></i></button>
+                                            <button class="safetytable_table_id_delete isDisabled" onclick="DeleteKPIHandler('Safety')" type="button">Delete<i class="marginicon fas fa-trash"></i></button>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr style="width:100%;text-align:center;margin-left:0">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 table_class">
+                                        <div class="safetytable">
+                                        </div>
+                                    </div>
+                                </div>
+                                @*END OF SAFETY*@
+
+                                <div class="paddingtop25px">
+                                </div>
+
+
+                                @*START OF C-ITs Message*@
+                                <div class="tablemain">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="headtabletitle">C-ITs Message</div>
+                                        </div>
+                                        <div class="col-8 main-buttons-with-icons" style="text-align:right">
+                                            <button class="citsmessage_table_id_graph" onclick="CITsMessageGraph()" type="button">Graph<i class="marginicon fas fa-chart-pie"></i></button>
+                                            <button class="citsmessage_table_id_table tableviewbutton" onclick="CITsMessageTableView()" type="button">Table<i class="marginicon fas fa-table"></i></button>
+                                            <button class="citsmessage_table_id_add" onclick="AddKpiHandler('C-ITs Message')" type="button">Add<i class="marginicon fas fa-plus"></i></button>
+                                            <button class="citsmessage_table_id_edit isDisabled" onclick="EditKpiHandler('C-ITs Message')" type="button">Edit<i class="marginicon fas fa-edit"></i></button>
+                                            <button class="citsmessage_table_id_delete isDisabled" onclick="DeleteKPIHandler('C-ITs Message')" type="button">Delete<i class="marginicon fas fa-trash"></i></button>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr style="width:100%;text-align:center;margin-left:0">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 table_class">
+                                        <div class="citsmessagetable">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*END OF C-ITs Message*@
+
+
+                            </div>  @*END OF LEFT SIDE*@
+
+
+                            <div class="col-md-12 col-lg-6">
+                                @*START OF RIGHT SIDE*@
+
+                                @*START OF VIDEO*@
+                                <div class="tablemain">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="headtabletitle">Video</div>
+                                        </div>
+                                        <div class="col-8 main-buttons-with-icons" style="text-align:right">
+                                            <button class="video_table_id_graph" onclick="VideoGraph()" type="button">Graph<i class="marginicon fas fa-chart-pie"></i></button>
+                                            <button class="video_table_id_table tableviewbutton" onclick="VideoTableView()" type="button">Table<i class="marginicon fas fa-table"></i></button>
+                                            <button class="video_table_id_add" onclick="AddKpiHandler('Video')" type="button">Add<i class="marginicon fas fa-plus"></i></button>
+                                            <button class="video_table_id_edit isDisabled" onclick="EditKpiHandler('Video')" type="button">Edit<i class="marginicon fas fa-edit"></i></button>
+                                            <button class="video_table_id_delete isDisabled" onclick="DeleteKPIHandler('Video')" type="button">Delete<i class="marginicon fas fa-trash"></i></button>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <hr style="width:100%;text-align:center;margin-left:0">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 table_class">
+                                        <div class="videotable">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*END OF VIDEO*@
+
+
+                                <div class="paddingtop25px">
+                                </div>
+
+
+                                @*START OF Sensor*@
+                                <div class="tablemain">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="headtabletitle">Sensor</div>
+                                        </div>
+                                        <div class="col-8 main-buttons-with-icons" style="text-align:right">
+                                            <button class="sensor_table_id_graph" onclick="SensorGraph()" type="button">Graph<i class="marginicon fas fa-chart-pie"></i></button>
+                                            <button class="sensor_table_id_table tableviewbutton" onclick="SensorTableView()" type="button">Table<i class="marginicon fas fa-table"></i></button>
+                                            <button class="sensor_table_id_add" onclick="AddKpiHandler('Sensor')" type="button">Add<i class="marginicon fas fa-plus"></i></button>
+                                            <button class="sensor_table_id_edit isDisabled" onclick="EditKpiHandler('Sensor')" type="button">Edit<i class="marginicon fas fa-edit"></i></button>
+                                            <button class="sensor_table_id_delete isDisabled" onclick="DeleteKPIHandler('Sensor')" type="button">Delete<i class="marginicon fas fa-trash"></i></button>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr style="width:100%;text-align:center;margin-left:0">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 table_class">
+                                        <div class="sensortable">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*END OF SENSOR*@
+
+                                <div class="paddingtop25px">
+                                </div>
+
+
+
+                                @*START OF Routing Algorithm*@
+                                <div class="tablemain">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="headtabletitle">Routing Algorithm</div>
+                                        </div>
+                                        <div class="col-8 main-buttons-with-icons" style="text-align:right">
+                                            <button class="routtingalgorith_table_id_graph" onclick="RoutingAlorithmGraph()" type="button">Graph<i class="marginicon fas fa-chart-pie"></i></button>
+                                            <button class="routtingalgorith_table_id_table tableviewbutton" onclick="RoutingAlorithmTableView()" type="button">Table<i class="marginicon fas fa-table"></i></button>
+                                            <button class="routtingalgorith_table_id_add" onclick="AddKpiHandler('Routing Algorithm')" type="button">Add<i class="marginicon fas fa-plus"></i></button>
+                                            <button class="routtingalgorith_table_id_edit isDisabled" onclick="EditKpiHandler('Routing Algorithm')" type="button">Edit<i class="marginicon fas fa-edit"></i></button>
+                                            <button class="routtingalgorith_table_id_delete isDisabled" onclick="DeleteKPIHandler('Routing Algorithm')" type="button">Delete<i class="marginicon fas fa-trash"></i></button>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr style="width:100%;text-align:center;margin-left:0">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 table_class">
+                                        <div class="routtingalgorithtable">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*END OF ROUTTING SENSOR*@
+
+                                <div class="paddingtop25px">
+                                </div>
+
+                                @*START OF Gaming*@
+                                <div class="tablemain">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="headtabletitle">Gaming</div>
+                                        </div>
+                                        <div class="col-8 main-buttons-with-icons" style="text-align:right">
+                                            <button class="gaming_table_id_graph" onclick="GamingGraph()" type="button">Graph<i class="marginicon fas fa-chart-pie"></i></button>
+                                            <button class="gaming_table_id_table tableviewbutton" onclick="GamingTableView()" type="button">Table<i class="marginicon fas fa-table"></i></button>
+                                            <button class="gaming_table_id_add" onclick="AddKpiHandler('Gaming')" type="button">Add<i class="marginicon fas fa-plus"></i></button>
+                                            <button class="gaming_table_id_edit isDisabled" onclick="EditKpiHandler('Gaming')" type="button">Edit<i class="marginicon fas fa-edit"></i></button>
+                                            <button class="gaming_table_id_delete isDisabled" onclick="DeleteKPIHandler('Gaming')" type="button">Delete<i class="marginicon fas fa-trash"></i></button>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr style="width:100%;text-align:center;margin-left:0">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 table_class">
+                                        <div class="gamingtable">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*END OF Gaming*@
+
+                            </div> @*END OF RIGHT SIDE*@
+                        </div>  @*START OF LEFT SIDE*@
+                    </div>
+                </div>
+            </div>    @*Aplication KPIs*@
+            <div class="accordion-item">
+                @*Start of Service KPIs*@
+                <h2 class="accordion-header" id="headingTwo" onclick="VisualizeServiceGraphs()">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Service KPIs
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#KPItables">
+                    <div class="accordion-body">
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                @*START OF LEFT SIDE*@
+                                @*START OF Dedicated Bearer Service*@
+                                <div class="tablemain">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="headtabletitle">Dedicated Bearer Service</div>
+                                        </div>
+                                        <div class="col-8 main-buttons-with-icons" style="text-align:right">
+                                            <button class="dedicatedserver_table_id_graph" onclick="DedicatedBearerServiceGraph()" type="button">Graph<i class="marginicon fas fa-chart-pie"></i></button>
+                                            <button class="dedicatedserver_table_id_table tableviewbutton" onclick="DedicatedBearerServiceTableView()" type="button">Table<i class="marginicon fas fa-table"></i></button>
+                                            <button class="dedicatedserver_table_id_add" onclick="AddKpiHandler('Dedicated Bearer Service')" type="button">Add<i class="marginicon fas fa-plus"></i></button>
+                                            <button class="dedicatedserver_table_id_edit isDisabled" onclick="EditKpiHandler('Dedicated Bearer Service')" type="button">Edit<i class="marginicon fas fa-edit"></i></button>
+                                            <button class="dedicatedserver_table_id_delete isDisabled" onclick="DeleteKPIHandler('Dedicated Bearer Service')" type="button">Delete<i class="marginicon fas fa-trash"></i></button>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr style="width:100%;text-align:center;margin-left:0">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 table_class">
+                                        <div class="dedicatedservertable">
+                                        </div>
+                                    </div>
+                                </div>
+                                @*END OF Dedicated Bearer Service*@
+
+                                <div class="paddingtop25px">
+                                </div>
+
+
+                                @*START OF SMS Bearer*@
+                                <div class="tablemain">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="headtabletitle">SMS Bearer</div>
+                                        </div>
+                                        <div class="col-8 main-buttons-with-icons" style="text-align:right">
+                                            <button class="smsbearer_table_id_graph" onclick="SMSBearerGraph()" type="button">Graph<i class="marginicon fas fa-chart-pie"></i></button>
+                                            <button class="smsbearer_table_id_table tableviewbutton" onclick="SMSBearerTableView()" type="button">Table<i class="marginicon fas fa-table"></i></button>
+                                            <button class="smsbearer_table_id_add" onclick="AddKpiHandler('SMS Bearer')" type="button">Add<i class="marginicon fas fa-plus"></i></button>
+                                            <button class="smsbearer_table_id_edit isDisabled" onclick="EditKpiHandler('SMS Bearer')" type="button">Edit<i class="marginicon fas fa-edit"></i></button>
+                                            <button class="smsbearer_table_id_delete isDisabled" onclick="DeleteKPIHandler('SMS Bearer')" type="button">Delete<i class="marginicon fas fa-trash"></i></button>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr style="width:100%;text-align:center;margin-left:0">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 table_class">
+                                        <div class="smsbearertable">
+                                        </div>
+                                    </div>
+                                </div>
+                                @*END OF SMS Bearer*@
+
+
+
+
+                            </div>  @*END OF LEFT SIDE*@
+
+
+                            <div class="col-md-12 col-lg-6">
+                                @*START OF RIGHT SIDE*@
+
+                                @*START OF MOBILITY*@
+                                <div class="tablemain">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="headtabletitle">Mobility</div>
+                                        </div>
+                                        <div class="col-8 main-buttons-with-icons" style="text-align:right">
+                                            <button class="mobility_graph" onclick="MobilityGraph()" type="button">Graph<i class="marginicon fas fa-chart-pie"></i></button>
+                                            <button class="mobility_table" onclick="MobilityTableView()" type="button">Table<i class="marginicon fas fa-table"></i></button>
+                                            <button class="mobility_add" onclick="AddKpiHandler('Mobility')" type="button">Add<i class="marginicon fas fa-plus"></i></button>
+                                            <button class="mobility_edit isDisabled" onclick="EditKpiHandler('Mobility')" type="button">Edit<i class="marginicon fas fa-edit"></i></button>
+                                            <button class="mobility_delete isDisabled" onclick="DeleteKPIHandler('Mobility')" type="button">Delete<i class="marginicon fas fa-trash"></i></button>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr style="width:100%;text-align:center;margin-left:0">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 table_class">
+                                        <div class="mobilitytable">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*END OF Mobility*@
+
+
+                                <div class="paddingtop25px">
+                                </div>
+
+                            </div> @*END OF RIGHT SIDE*@
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>    @*END OF Service KPIs*@
+            <div class="accordion-item">
+                @*START OF Network KPIs*@
+                <h2 class="accordion-header" id="headingThree" onclick="VisualizeNetworkGraphs()">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Network KPIs
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#KPItables">
+                    <div class="accordion-body">
+
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                @*START OF LEFT SIDE*@
+                                @*START OF Radio Coverage*@
+                                <div class="tablemain">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="headtabletitle">Radio Coverage</div>
+                                        </div>
+                                        <div class="col-8 main-buttons-with-icons" style="text-align:right">
+                                            <button class="radiocoverage_table_id_graph" onclick="RadioCoverageGraph()" type="button">Graph<i class="marginicon fas fa-chart-pie"></i></button>
+                                            <button class="radiocoverage_table_id_table tableviewbutton" onclick="RadioCoverageTableView()" type="button">Table<i class="marginicon fas fa-table"></i></button>
+                                            <button class="radiocoverage_table_id_add" onclick="AddKpiHandler('Radio Coverage')" type="button">Add<i class="marginicon fas fa-plus"></i></button>
+                                            <button class="radiocoverage_table_id_edit isDisabled" onclick="EditKpiHandler('Radio Coverage')" type="button">Edit<i class="marginicon fas fa-edit"></i></button>
+                                            <button class="radiocoverage_table_id_delete isDisabled" onclick="DeleteKPIHandler('Radio Coverage')" type="button">Delete<i class="marginicon fas fa-trash"></i></button>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr style="width:100%;text-align:center;margin-left:0">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 table_class">
+                                        <div class="radiocoveragetable">
+                                        </div>
+                                    </div>
+                                </div>
+                                @*END OF Radio Coverage*@
+
+                                <div class="paddingtop25px">
+                                </div>
+
+
+                                @*START OF Radio Capacity*@
+                                <div class="tablemain">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="headtabletitle">Radio Capacity</div>
+                                        </div>
+                                        <div class="col-8 main-buttons-with-icons" style="text-align:right">
+                                            <button class="radiocapacity_table_id_graph" onclick="RadioCapacityGraph()" type="button">Graph<i class="marginicon fas fa-chart-pie"></i></button>
+                                            <button class="radiocapacity_table_id_table tableviewbutton" onclick="RadioCapacityTableView()" type="button">Table<i class="marginicon fas fa-table"></i></button>
+                                            <button class="radiocapacity_table_id_add" onclick="AddKpiHandler('Radio Capacity')" type="button">Add<i class="marginicon fas fa-plus"></i></button>
+                                            <button class="radiocapacity_table_id_edit isDisabled" onclick="EditKpiHandler('Radio Capacity')" type="button">Edit<i class="marginicon fas fa-edit"></i></button>
+                                            <button class="radiocapacity_table_id_delete isDisabled" onclick="DeleteKPIHandler('Radio Capacity')" type="button">Delete<i class="marginicon fas fa-trash"></i></button>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr style="width:100%;text-align:center;margin-left:0">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 table_class">
+                                        <div class="radiocapacitytable">
+                                        </div>
+                                    </div>
+                                </div>
+                                @*END OF Radio Capacity*@
+
+
+
+
+                            </div>  @*END OF LEFT SIDE*@
+
+
+                            <div class="col-md-12 col-lg-6">
+                                @*START OF RIGHT SIDE*@
+
+                                @*START OF NETWORK LATENCY*@
+                                <div class="tablemain">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="headtabletitle">Network Latency</div>
+                                        </div>
+                                        <div class="col-8 main-buttons-with-icons" style="text-align:right">
+                                            <button class="networklatency_table_id_graph" onclick="NetworkLatencyGraph()" type="button">Graph<i class="marginicon fas fa-chart-pie"></i></button>
+                                            <button class="networklatency_table_id_table tableviewbutton" onclick="NetworkLatencyTableView()" type="button">Table<i class="marginicon fas fa-table"></i></button>
+                                            <button class="networklatency_table_id_add" onclick="AddKpiHandler('Network Latency')" type="button">Add<i class="marginicon fas fa-plus"></i></button>
+                                            <button class="networklatency_table_id_edit isDisabled" onclick="EditKpiHandler('Network Latency')" type="button">Edit<i class="marginicon fas fa-edit"></i></button>
+                                            <button class="networklatency_table_id_delete isDisabled" onclick="DeleteKPIHandler('Network Latency')" type="button">Delete<i class="marginicon fas fa-trash"></i></button>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr style="width:100%;text-align:center;margin-left:0">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 table_class">
+                                        <div class="networklatencytable">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*END OF NETWORK LATENCY*@
+
+
+                                <div class="paddingtop25px">
+                                </div>
+
+
+                                @*START OF Cloud and Mec Processing*@
+                                <div class="tablemain">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="headtabletitle">Cloud and MEC Processing</div>
+                                        </div>
+                                        <div class="col-8 main-buttons-with-icons" style="text-align:right">
+                                            <button class="candmprocessing_table_id_graph" onclick="CloudandMECProcessingGraph()" type="button">Graph<i class="marginicon fas fa-chart-pie"></i></button>
+                                            <button class="candmprocessing_table_id_table tableviewbutton" onclick="CloudandMECProcessingTableView()" type="button">Table<i class="marginicon fas fa-table"></i></button>
+                                            <button class="candmprocessing_table_id_add" onclick="AddKpiHandler('Cloud and MEC Processing')" type="button">Add<i class="marginicon fas fa-plus"></i></button>
+                                            <button class="candmprocessing_table_id_edit isDisabled" onclick="EditKpiHandler('Cloud and MEC Processing')" type="button">Edit<i class="marginicon fas fa-edit"></i></button>
+                                            <button class="candmprocessing_table_id_delete isDisabled" onclick="DeleteKPIHandler('Cloud and MEC Processing')" type="button">Delete<i class="marginicon fas fa-trash"></i></button>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <hr style="width:100%;text-align:center;margin-left:0">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12 table_class">
+                                        <div class="candmprocessingtable">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*END  OF Cloud and Mec Processing*@
+
+
+                            </div> @*END OF RIGHT SIDE*@
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>    @*END OF Network KPIs*@
+        </div>
+    </div>
+</div>
+<div class="homemodal">
+    <div class="modal fade" id="5groutesmodal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

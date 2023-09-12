@@ -1,0 +1,205 @@
+﻿@{
+    ViewData["Title"] = "Northbound Configuration Dashboard";
+}
+
+
+<div class="row">
+    <div class="titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+</div>
+<br />
+
+
+
+
+<div class="tabs">
+
+    <input type="radio" id="tab1" name="tab-control" checked>
+    <input type="radio" id="tab2" name="tab-control">
+
+        <ul class="tabul">
+        <li class="tabli" title="5QI Request"><label for="tab1" role="button"><br><span>5QI Request</span></label></li>
+        <li class="tabli" title="5QI Values Mapping"><label for="tab2" role="button"><br><span>5QI Values Mapping</span></label></li>
+        </ul>
+
+    <div class="slider"><div class="indicator"></div></div>
+
+
+    <div class="content">
+        <section>            
+                <div class="row ucdescriptionchosen">
+                    <div class="col-md-3 col-sm-12">
+                        <label for="ucdescription" class="_5Gselector">Select 5G QoS Indicator</label>
+                    </div>
+                    <div class="col-md-6 col-sm-10">
+                        <select class="sel" id="info_id">
+                        <option>Select 5QI value</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 col-sm-10">
+                        <button type="submit" class="btn btn-warning btn-user btn-block" onclick="Sub()">
+                            Submit
+                        </button>
+
+                    <button type="submit" class="btn btn-primary btn-user btn-block" onclick="ClearPopulated()">
+                            Clear
+                        </button>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <hr style="width:100%;text-align:center;margin-left:0">
+                    </div>
+                </div>
+                <div class="generalinfoclass">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-12">
+                                    Experiment ID
+                                </div>
+                                <div class="col-md-8 col-sm-12">
+                                    <input type="number" id="expriment">
+                                </div>
+
+                                <div class="col-md-4 col-sm-12">
+                                    QI Value
+                                </div>
+                                <div class="col-md-8 col-sm-12">
+                                    <input type="text" id="qi_value" readonly>
+                                </div>
+
+                                <div class="col-md-4 col-sm-12">
+                                    Resources Type
+                                </div>
+                                <div class="col-md-8 col-sm-12">
+                                    <input type="text" id="resources_type" readonly>
+                                </div>
+
+                                <div class="col-md-4 col-sm-12">
+                                    Default Priority Level
+                                </div>
+                                <div class="col-md-8 col-sm-12">
+                                    <input type="text" id="default_prio" readonly>
+                                </div>
+
+                                <div class="col-md-4 col-sm-12">
+                                    Packet Delay Budget
+                                </div>
+                                <div class="col-md-8 col-sm-12">
+                                    <input type="text" id="packet_delay" readonly>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-12">
+                                    packet Error Rate
+                                </div>
+                                <div class="col-md-8 col-sm-12">
+                                    <input type="text" id="packet_error" readonly>
+                                </div>
+
+                                <div class="col-md-4 col-sm-12">
+                                    Default Average Windows (ms)
+                                </div>
+                                <div class="col-md-8 col-sm-12">
+                                    <input type="text" id="default_ave" readonly>
+                                </div>
+
+                                <div class="col-md-4 col-sm-12">
+                                    Default Maximum Data Burst
+                                </div>
+                                <div class="col-md-8 col-sm-12">
+                                    <input type="text" id="default_max" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="errormessageusecase col-12">
+                    </div>
+
+                    <div class="container-fluid" style="margin-top: 3%;">
+                        <div id="treshold_bloc_title"></div>
+                        <div id="uc_threshold_config" class="row">
+                            <div id="uc_threshold_config_left_block" class="col-md-12 col-lg-6"></div>
+                            <div id="uc_threshold_config_right_block" class="col-md-12 col-lg-6"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-12" style="margin-top: 2%;">
+                    <table id="5qi_request" style="width:100%">
+                        <thead class="ml">
+                            <tr>
+                            <th>Request</th>
+                            <th style="text-align:center;">Request Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="requestor">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Standardized 5QI to QoS characteristics mapping</h2>
+            <br />
+            <div>
+                <table id="5qi_mapping"  class="tb" style="width:100%">
+                    <thead>
+                        <tr class="mapping_table">
+                            <th>5QI Value</th>
+                            <th>Resource Type</th>
+                            <th>Default Priority Level</th>
+                            <th>Packet Delay Budget (NOTE3)</th>
+                            <th>PacketError Rate</th>
+                            <th>Default Maximum Data</th>
+                            <th>Default Average Windows</th>
+                            <th>Example Services</th>
+                        </tr>
+                    </thead>
+                    <tbody id="5QI">
+                    </tbody>
+                </table>
+            </div>
+            <br/>
+
+      <div class="boxx">
+            <h2>Notes</h2>
+
+            <p>NOTE 1:	A packet which is delayed more than PDB is not counted as lost, thus not included in the PER.</p>
+            <p>NOTE 2:	It is required that default MDBV is supported by a PLMN supporting the related 5QIs.</p>
+            <p>NOTE 3:	The Maximum Transfer Unit (MTU) size considerations in clause 9.3 and Annex C of TS 23.060 [56] are also applicable. IP fragmentation may have impacts to CN PDB, and details are provided in clause 5.6.10.</p>
+            <p>NOTE 4:	A static value for the CN PDB of 1 ms for the delay between a UPF terminating N6 and a 5G-AN should be subtracted from a given PDB to derive the packet delay budget that applies to the radio interface. When a dynamic CN PDB is used, see clause 5.7.3.4.</p>
+            <p>NOTE 5:	A static value for the CN PDB of 2 ms for the delay between a UPF terminating N6 and a 5G-AN should be subtracted from a given PDB to derive the packet delay budget that applies to the radio interface. When a dynamic CN PDB is used, see clause 5.7.3.4.</p>
+            <p>NOTE 6:	A static value for the CN PDB of 5 ms for the delay between a UPF terminating N6 and a 5G-AN should be subtracted from a given PDB to derive the packet delay budget that applies to the radio interface. When a dynamic CN PDB is used, see clause 5.7.3.4.</p>
+            <p>NOTE 7:	For Mission Critical services, it may be assumed that the UPF terminating N6 is located "close" to the 5G_AN (roughly 10 ms) and is not normally used in a long distance, home routed roaming situation. Hence a static value for the CN PDBof 10 ms for the delay between a UPF terminating N6 and a 5G_AN should be subtracted from this PDB to derive the packet delay budget that applies to the radio interface.</p>
+            <p>NOTE 8:  In both RRC Idle and RRC Connected mode, the PDB requirement for these 5QIs can be relaxed (but not to a value greater than 320 ms) for the first packet(s) in a downlink data or signalling burst in order to permit reasonable battery saving (DRX) techniques.</p>
+            <p>NOTE 9:  It is expected that 5QI-65 and 5QI-69 are used together to provide Mission Critical Push to Talk service (e.g., 5QI-5 is not used for signalling). It is expected that the amount of traffic per UE will be similar or less compared to the IMS signalling.</p>
+            <p>NOTE 10:	 In both RRC Idle and RRC Connected mode, the PDB requirement for these 5QIs can be relaxed for the first packet(s) in a downlink data or signalling burst in order to permit battery saving (DRX) techniques.</p>
+            <p>NOTE 11:  In RRC Idle mode, the PDB requirement for these 5QIs can be relaxed for the first packet(s) in a downlink data or signalling burst in order to permit battery saving (DRX) techniques.</p>
+            <p>NOTE 12:	This 5QI value can only be assigned upon request from the network side. The UE and any application running on the UE is not allowed to request this 5QI value.</p>
+            <p>NOTE 13:	A static value for the CN PDB of 20 ms for the delay between a UPF terminating N6 and a 5G-AN should be subtracted from a given PDB to derive the packet delay budget that applies to the radio interface.</p>
+            <p>NOTE 14:	This 5QI is not supported in this Release of the specification as it is only used for transmission of V2X messages over MBMS bearers as defined in TS 23.285 [72] but the value is reserved for future use.</p>
+            <p>NOTE 15:	For "live" uplink streaming (see TS 26.238 [76]), guidelines for PDB values of the different 5QIs correspond to the latency configurations defined in TR 26.939 [77]. In order to support higher latency reliable streaming services (above 500ms PDB), if different PDB and PER combinations are needed these configurations will have to use non-standardised 5QIs.</p>
+            <p>NOTE 16:	These services are expected to need much larger MDBV values to be signalled to the RAN. Support for such larger MDBV values with low latency and high reliability is likely to require a suitable RAN configuration, for which, the simulation scenarios in TR 38.824 [112] may contain some guidance.</p>
+            <p>NOTE X: A static value for the CN PDB of 1 ms for the delay between a UPF terminating N6 and a 5G-AN should be subtracted from a given PDB to derive the packet delay budget that applies to the radio interface. When a dynamic CN PDB is used, see clause 5.7.3.4.</p>
+            <p>NOTE Y: The MDBV is calculated with 20Mbps service bit rate and corresponding 5G-AN PDB. The MDBV for interactive services may be a range and other values can be signaled to the RAN according to service bit rate needed</p>
+            <p>NOTE Z: The MDBV is calculated with 1Mbps service bit rate and corresponding 5G-AN PDB. The MDBV for interactive services may be a range and other values can be signaled to the RAN according to service bit rate needed. </p>
+        </section>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "API Configuration";
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/ApiTokenHandler.js" asp-append-version="true"></script>
+
+<div class="row">
+    <div class="col-12 titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+</div>
+
+<div class="container">      
+    <div class="settings-next">
+        <div class="row">
+            <h2 class="col-8">Personal access tokens</h2>
+  
+            <div class="col-4" style="text-align: end">
+                <button id="addApiToken" onclick="AddApiTokenModal()" class="btn btn-sm btn-outline-primary special-primary"><i class="marginicon fa-solid fa-key" style="margin-right:4px"></i> Generate new token</button>
+            </div>
+        </div>
+        <hr/>
+        <p>Need an API token for integrations? <a href="#" onclick="AddApiTokenModal()">Generate a personal access token</a> for quick access to the <a href="/">5GRoutes API</a>.</p>
+    </div>
+    
+    <div id="token-table">
+        
+    </div>
+
+    <div class="text-small color-fg-muted mt-3">
+        Personal access tokens function like ordinary OAuth access tokens. They
+        can be used instead of a password, or can be used to
+        <a href="#" target="_blank">authenticate to the API over Basic Authentication</a>.
+    </div>
+
+</div>
+
+<div class="homemodal">
+    <div class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "5G ERA - Json to File Converter";
+
+}
+
+<script src="~/eu_projects/5gera/projectFiles/ERAGraphs.js"></script>
+<script src="~/eu_projects/5gera/projectFiles/5geraHelper.js"></script>
+<script src="~/eu_projects/5gera/projectFiles/ConverterHandler.js"></script>
+
+<div class="row">
+    <div class="col-12 titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+</div>
+
+<div class="row" style="margin-left:5%">
+    <div id="left_block" class="col-5">
+        <h2 class="text-center">Json Configuration</h2>
+        <div class="card converter-card">
+            <div class="card-body">
+                <label for="instance_name" class="form-label">Name</label>
+                <input type="text" class="form-control form-control-sm" id="instance_name"><br/>
+                <label for="task_priority_drp" class="form-label">Task Priority</label>
+                <select id="task_priority_drp">
+                    <option value="1">1-High</option>
+                    <option value="2">2-Medium</option>
+                    <option value="3">3-Low</option>
+                </select>
+                <br></br>
+                <fieldset id="action_sequence_block">
+                    <legend>
+                        <div class="row">
+                            <div class="col-10 fs-4">Action Sequences </div>
+                            <div class="col-2"><button class="btn btn-primary" onclick="OnAddActionSequenceBlock()"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </legend>
+                </fieldset>
+                <br/>
+                @*<fieldset id="root_relations_block">
+                    <legend>
+                        <div class="row">
+                            <div class="col-10 fs-4">Relations </div>
+                            <div class="col-2"><button class="btn btn-primary" onclick="OnAddRootRelationBlock()"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </legend>
+                </fieldset>*@
+            </div>
+        </div>
+    </div>
+    <div id="middle_block" class="col align-self-center col-1" style="text-align: center">
+        <button type="button" class="btn btn-primary btn-sm" onclick="GenerateJsonObject()"> <i class="menuIconFa fa-solid fa-right-left" style="color: white"></i> <br/> CONVERT</button>
+        <button type="button" class="btn btn-success btn-sm" onclick="ImportTask()" style="margin-top: 7%"> <i class="menuIconFa fa-solid fa-floppy-disk" style="color: white;"></i> <br/> IMPORT</button>
+    </div>
+    <div id="right_block" class="col-5">
+        <h2 class="text-center">Json Preview</h2>
+        <div class="card converter-card">
+            <div class="card-body">
+                <div id="json_object_preview">
+                    <pre>{}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

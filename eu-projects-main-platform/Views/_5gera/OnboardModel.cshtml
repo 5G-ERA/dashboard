@@ -1,0 +1,79 @@
+﻿@model eu_projects_main_platform.Models._5gera.Entityfile
+<style>
+    .container{
+        display: block;
+        width: 50%;
+        margin: auto
+    }
+</style>
+<br/>
+<h2>Category</h2>
+<hr />
+<br />
+@{
+    List<SelectListItem> selectionList = new List<SelectListItem>();
+    selectionList.Add(new SelectListItem { Text = "Select", Value = "" });
+    selectionList.Add(new SelectListItem { Text = "Task", Value = "task"});
+    selectionList.Add(new SelectListItem { Text = "Cloud", Value = "cloud" });
+    selectionList.Add(new SelectListItem { Text = "Edge", Value = "edge" });
+    selectionList.Add(new SelectListItem { Text = "Action", Value = "action" });
+    selectionList.Add(new SelectListItem { Text = "Instance", Value = "instance" });
+    selectionList.Add(new SelectListItem { Text = "Robot", Value = "robot" });
+    // selectionList.Add(new SelectListItem { Text = "Policy", Value = "policy" });
+}
+<div class="container">
+<form method="post" enctype="multipart/form-data">
+        <div class="row my-3">    
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>SELECT ITEM TYPE</label>
+                    @Html.DropDownListFor(m => m.entity_type, selectionList, new { @class = "form-control" })
+                    @*@Html.DropDownList("SELECT ITEM TYPE", selectionList, "Select", htmlAttributes: new {@id = "item", @class="form-control", Model.entity_type} )*@
+                </div>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-md-6">
+                <div class="form-group">
+            @*<p>IMPORT</p>*@
+                    <input asp-for="file" type="file" required />
+                </div>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-md-10">
+                <div class="form-group">
+                    <input type="submit" value="UPLOAD" class="btn btn-sm btn-success ml-1" id="onboard" />
+                </div>
+            </div>
+         </div>
+        <div class="row my-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.DropDownList("SELECT ITEM TYPE", selectionList, "Select", htmlAttributes: new {@id = "item", @class="form-control"} )
+                </div>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                <button class="downloadbtn"><i class="fa fa-download"></i> Download</button>
+            @*<input type="submit" value="DOWNLOAD" />*@
+        </div>
+        </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <button type="button" class="btn btn-dark"><a asp-controller="Home" asp-action="Index" style="color:white">Back</a></button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+<script>
+    document.getElementById('onboard').click(){
+        entityType();
+    };
+</script>

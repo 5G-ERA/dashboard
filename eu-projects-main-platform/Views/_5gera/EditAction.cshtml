@@ -1,0 +1,75 @@
+﻿@model eu_projects_main_platform.Models._5gera.EditAction
+
+@{
+    ViewData["Title"] = "EditAction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br/>
+<h4>Edit Action</h4>
+<hr />
+<br/>
+<div class="container">
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditAction">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order" class="control-label"></label>
+                <input asp-for="Order" class="form-control" />
+                <span asp-validation-for="Order" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Placement" class="control-label"></label>
+                <input asp-for="Placement" class="form-control" />
+                <span asp-validation-for="Placement" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlacementType" class="control-label"></label>
+                <input asp-for="PlacementType" class="form-control" />
+                <span asp-validation-for="PlacementType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActionPriority" class="control-label"></label>
+                <input asp-for="ActionPriority" class="form-control" />
+                <span asp-validation-for="ActionPriority" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActionStatus" class="control-label"></label>
+                <input asp-for="ActionStatus" class="form-control" />
+                <span asp-validation-for="ActionStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MinimumRam" class="control-label"></label>
+                <input asp-for="MinimumRam" class="form-control" />
+                <span asp-validation-for="MinimumRam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MinimumNumCores" class="control-label"></label>
+                <input asp-for="MinimumNumCores" class="form-control" />
+                <span asp-validation-for="MinimumNumCores" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            <div class="form-group">
+                    <button type="button" class="btn btn-dark"><a asp-controller="Home" asp-action="Index" style="color:white">Back</a></button>
+                </div>
+        </form>
+    </div>
+</div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,142 @@
+﻿@{
+    ViewData["Title"] = "5G Media Hub - Home";
+
+}
+
+
+<script src="~/eu_projects/5ghub/projectFiles/ExperimentResults.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5ghub/projectFiles/VisualiseKPIs.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5ghub/projectFiles/5ghubHelper.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5ghub/projectFiles/DataManagement.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5ghub/projectFiles/DropdownsHandlers.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5ghub/projectFiles/TablesInfoHandler.js" asp-append-version="true"></script>
+<div class="row">
+    <div class="col-12 titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+</div>
+<div class="usdescript-date">
+    <div class="row ucdescriptionchosen">
+        <div class="col-md-2 col-sm-12">
+            <label for="ucdescription">Data Source</label>
+        </div>
+        <div class="col-md-9 col-sm-10">
+            <select name="ucdesc" id="ucdesc_id">
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <hr style="width:100%;text-align:center;margin-left:0">
+        </div>
+    </div>
+    <div class="generalinfoclass">
+        <div class="row">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="row">
+                        <div id="uc_id_label" class="col-md-4 col-sm-12">
+                            Use Case ID
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_id" readonly style="display: none">
+                            <input type="text" id="uc_id_string" readonly>
+                        </div>
+                        <div id="uc_description_label" class="col-md-4 col-sm-12">
+                            Use Case Description
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_description_id" readonly>
+                        </div>
+
+                        <div id="responsible_label" class="col-md-4 col-sm-12">
+                            Responsible
+                        </div>
+                        <div id="responsible_field" class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_responsible_id" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="row">
+                        <div id="contact_label" class="col-md-4 col-sm-12">
+                            Contact
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_contact_id" readonly>
+                        </div>
+
+                        <div id="date_label" class="col-md-4 col-sm-12">
+                            Date
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="date" id="uc_date_id" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="errormessageusecase col-12">
+        </div>
+    </div>
+    
+</div>
+@*end of general info div*@
+
+<div class="scenarioarea">
+    <div id="scenarioTypebloc"></div>
+    <div class="row scenariodescriptionchosen">
+        <div class="col-sm-2">
+            <label>Scenario Description</label>
+        </div>
+        <div class="col-sm-9">
+            <select id="scenariodesc_id" disabled data-placeholder="Please choose a Scenario First">
+            </select>
+        </div>
+    </div>
+    <div id="uc_experiment_monitoring_block">
+        <div class="row">
+            <div class="col-sm-12">
+                <hr style="width:100%;text-align:center;margin-left:0">
+            </div>
+        </div>
+        <div id="experiment_button_block">
+            <div class="col-md-12 col-12 scnariobuttons main-buttons-with-icons scenariobuttons">
+                <span id="test_experiment_countdown" class="label-danger"></span>
+                <span id="test_experiment_status" class="label-danger" style="margin-left: 20px;margin-right: 5px"></span>
+                <button class="addnewexperiment scenariobuttons" onclick="StartExperimentConfigModal()" type="button">Start New Experiment<i class="marginicon fas fa-play"></i></button>
+                <button class="schedulenewexperiment scenariobuttons" onclick="ScheduleExperimentConfigModal()" type="button">Schedule Experiment<i class="marginicon fas fa-calendar-days"></i></button>
+                <button class="stopexperiment scenariobuttons" onclick="StopExperiment()" type="button">Stop Experiment<i class="marginicon fas fa-stop"></i></button>
+                <button class="viewresourceexperiment scenariobuttons btn-success" onclick="ViewResourceAvailability()" type="button">View Resources Status<i class="marginicon far fa-hdd"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="scenario_block">
+
+</div>
+<div class="homemodal">
+    <div class="modal fade" id="5groutesmodal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

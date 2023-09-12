@@ -1,0 +1,198 @@
+﻿@{
+    ViewData["Title"] = "Home > Forecasts";
+}
+
+<style>
+    .self-align-col {
+        place-self: center;
+    }
+</style>
+
+<div class="row header-section">
+    <div class="titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+
+    @*<div id="gird-settings">
+    </div>*@
+
+</div>
+
+
+
+
+
+
+<ul class="nav nav-tabs" id="forecastTab" role="tablist">
+
+@*    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="resoucres-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true" onclick="updateActiveMenu('Forecasts','forecast','Resources')">Resoucres</button>
+    </li>
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pallet-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false" onclick="updateActiveMenu('Forecasts','forecast','PalletFlow')">Pallet flow</button>
+    </li>
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="flow-tab" data-bs-toggle="tab" data-bs-target="#tab3" type="button" role="tab" aria-controls="tab3" aria-selected="false" onclick="updateActiveMenu('Forecasts','forecast','ContainerFlowPort')">Container flow Port</button>
+    </li>*@
+
+
+</ul>
+
+
+<div class="tab-content" id="myTabContent">
+
+    @*tab1*@
+    <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="Resources-tab">
+
+        <div id="table1Grid" class="col-12">
+            <div class="row">
+                <div class="col-xl-12 stretch-card grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="networkRoutesDropdown row">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="grids-container">
+                @*table*@
+                <div class="row Forecasts_ResourcesTablearea" style="display:none;">
+                    <div class="col-xl-12 stretch-card grid-margin">
+                        <div class="card">
+                                        <span class="handle" style="float:right"><i class="fa-solid fa-arrows-up-down-left-right"></i></span>
+                        <div class="row advancedSearchContainer" id="advancedSearchContainer-Forecasts-Resources-Table" style="display:none"> </div>
+
+                            <div class="card-body row">
+
+                                @*table-content*@
+                                   <div class="table-responsive col-12">
+                                    <table id="Forecasts-Resources-Table">
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div id="ContainerGraph" class="row">
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    @*tab2*@
+    <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="PalletFlow-tab">
+        <div class="row">
+            <div class="col-xl-12 stretch-card grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="palletDropdown row">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row Pallet-graph" style="display: none">
+            <div class="col-xl-12 stretch-card grid-margin">
+                <div class="card" id="pallet_Graph_block"></div>
+            </div>
+        </div>
+
+        @*table*@
+        <div class="row PalletTablearea" style="display:none;">
+            <div class="col-xl-12 stretch-card grid-margin">
+                <div class="card">
+                    <div class="row advancedSearchContainer" id="advancedSearchContainer-Forecasts-Pallet-Table" style="display:none"> </div>
+
+                    <div class="card-body row">
+
+                        @*table-content*@
+                        <div class="table-responsive col-12">
+                            <table id="Forecasts-Pallet-Table">
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row KPIDatatableArea" style="display:none;">
+            <div class="col-xl-12 stretch-card grid-margin">
+                <div class="card">
+                    <div class="card-body row">
+                        
+                        <div class="table-responsive col-12" >
+                            <table id="RouteOptimizationKPITable">
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    @*tab3*@
+    <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="ContainerFlowPort-tab">
+        <div class="row">
+            <div class="col-xl-12 stretch-card grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="containerDropdown row">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row Container-graph" style="display: none">
+            <div class="col-xl-12 stretch-card grid-margin">
+                <div class="card" id="container_Graph_block"></div>
+            </div>
+        </div>
+
+        @*table*@
+        <div class="row ContainerTablearea" style="display:none;">
+            <div class="col-xl-12 stretch-card grid-margin">
+                <div class="card">
+                        <div class="row advancedSearchContainer" id="advancedSearchContainer-Forecasts-Container-Table" style="display:none"> </div>
+
+                    <div class="card-body row">
+
+                        @*table-content*@
+                        <div class="table-responsive col-12">
+                            <table id="Forecasts-Container-Table">
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+    var sortable = Sortable.create(document.getElementById('grids-container'),{
+	handle: ".handle"
+})
+    var sortable2 = Sortable.create(document.getElementById('ContainerGraph'),{
+	handle: ".handle2"
+})
+</script>

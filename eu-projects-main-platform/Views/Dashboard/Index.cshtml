@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "Dashboard Manager";
+}
+<link href="~/css/dashbaord/dashboard.css" asp-append-version="true" rel="stylesheet"/>
+<script src="~/js/dashboard/dashboard.js" asp-append-version="true"></script>
+
+<div class="row">
+    <div class="col-12 titlepage headtitle">
+        <div class="row">
+            <div class="col-9">
+                @ViewData["Title"]
+            </div>
+            <div class="col-3">
+                <div class="btn-group me-2" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-outline-secondary" onclick="openAddDashboardModal()"><i class="fa-solid fa-plus"></i></button>
+                    <button type="button" class="btn btn-outline-secondary"><i class="fa-regular fa-pen-to-square"></i></button>
+                    <button type="button" class="btn btn-outline-secondary"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="grid" id="grid_dashboard">
+
+</div>
+
+<div class="homemodal">
+    <div class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+        <!-- Modal content-->
+        
+        </div>
+    </div>
+</div>

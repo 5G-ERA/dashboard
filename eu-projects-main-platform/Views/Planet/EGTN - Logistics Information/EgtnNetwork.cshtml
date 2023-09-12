@@ -1,0 +1,262 @@
+﻿@{
+    ViewData["Title"] = "Home > EGTN - Logistics Information > Network";
+}
+
+<link href="https://cdn.syncfusion.com/ej2/fabric.css" asp-append-version="true" rel="stylesheet">
+
+<div class="row header-section">
+    <div class="titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+
+    <div id="gird-settings">
+    </div>
+</div>  
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button onclick="getNetworkDatatable();" class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true">Weather conditions</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button onclick="getNetworkDropdownData()" class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false">Traffic conditions</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button onclick="" class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#tab3" type="button" role="tab" aria-controls="tab3" aria-selected="false">Node</button>
+        @*<button onclick="loadEGTNL_node()" class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#tab3" type="button" role="tab" aria-controls="tab3" aria-selected="false">Node</button>*@
+    </li>
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab4" data-bs-toggle="tab" data-bs-target="#tab4" type="button" role="tab" aria-controls="tab4" aria-selected="false">Transport Mode schedules</button>
+    </li>
+</ul>
+
+@*tab contents*@
+<div class="tab-content" id="myTabContent">
+
+    @*tab1*@
+<div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="home-tab">
+    
+    <div class="usdescript-date">
+        <div class="row ucdescriptionchosen" id="weather_station_chooser_block">
+            <div class="col-md-2 col-sm-12">
+                <label for="ucdescription">Select Weather Station</label>
+            </div>
+            <div class="col-md-9 col-sm-10">
+                <select id="weatherStation_id">
+                </select>
+            </div>
+        </div>
+    </div>
+
+    @*table*@
+    <div class="row EgtnNetowrkTablearea" style="display: none;">
+        <div class="col-xl-12 stretch-card grid-margin">
+            <div class="row" style="margin: 5px; width:100%">
+                <div class="col-6" id="weather_data_left_block"></div>
+                <div class="col-6" id="weather_data_right_block"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+    @*tab2*@
+    <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="profile-tab">
+
+        @*dropdown *@
+        <div class="row">
+            <div class="col-xl-12 stretch-card grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="networkRoutesDropdown row">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        @*table*@
+        <div class="row TrafficTablearea" style="display:none;">
+            <div class="col-xl-12 stretch-card grid-margin">
+                <div class="card">
+                    <div class="card-body row">
+
+                        @*table-content*@
+                        <div class="table-responsive col-12">
+                            <table id="TrafficTable">
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div id="traffic_condition_iframe" class="col-12 card" style="padding: 0px;"></div>
+        </div>
+
+
+    </div>
+
+    @*tab3*@
+    <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="contact-tab">
+        <div id="table1Grid">
+            <div class="row AEM1-CCU-037Tablearea" style="display:none;">
+                <div class="col-xl-12 stretch-card grid-margin">
+                    <div class="card">
+
+
+                        <div class="card-body row">
+                            <div class="tableHeader">
+                                AEM Table
+                            </div>
+                            <div class="card" style="width:100%">
+                                <div class="card-body row">
+                                    <div class="nodeTableDropdown col-10">
+                                        <div class="row">
+                                        <div class="col-3">
+                                            <label for="Columns"> Selected Columns:</label>
+                                        </div>
+                                            <div class="col-9" id="AEM_column_chooser_block">
+                                                <select name="Containers" id="" class="Containers"  size="4"> <option value="Port infrastructure index">Port infrastructure index</option> <option value="Port Capacity Index">Port Capacity Index</option> <option value="Efficiency of process index">Efficiency of process index</option> <option value="Service Frequency index">Service Frequency index</option> <option value="Centre of gravity">Centre of gravity</option> <option value="Digital connectivity">Digital connectivity</option> <option value="Green facilities">Green facilities</option> <option value="Overall CCI">Overall CCI</option> </select>
+                                            </div>
+                                            </div>
+                                    </div>
+                                    <div class="col-1"><select class="top-drp" id="aem_top_value">   <option selected="" value="5"> Top 5 </option>   <option value="10"> Top 10</option>   <option value="15"> Top 15</option>   </select></div>
+                                    <div class="col-1"> <button id="" class="btn btn-success main-btn" onclick="FilterAEM_Table()" style="display: block; text-align: center;"> Submit </button> </div>
+                                    </div>
+                            </div>
+                            <div class="table-responsive col-12">
+                                <table id="AEM1-CCU-037Table">
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="table2Grid">
+            <div class="row AEM1proformascheduleTablearea" style="display:none;">
+                <div class="col-xl-12 stretch-card grid-margin">
+                    <div class="card">
+                        <div class="card-body row">
+                            <div class="tableHeader">
+                                AEM Table 2
+                            </div>
+                            <div class="table-responsive col-12">
+                                <table id="AEM1proformascheduleTable">
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="table3Grid">
+            <div class="row BCNActivityTablearea" style="display:none;">
+                <div class="col-xl-12 stretch-card grid-margin">
+                    <div class="card">
+                        <div class="card-body row">
+                            <div class="tableHeader">
+                                BCN Activity Table 
+                            </div>
+                            <div class="card" style="width:100%">
+                                <div class="card-body row">
+                                    <div class="nodeTableDropdown col-10">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <label for="Columns"> Selected Columns:</label>
+                                            </div>
+                                            <div class="col-9" id="BCN_column_chooser_block">
+                                                <select name="Containers" id="" class="Containers"  size="4"> <option value="Port infrastructure index">Port infrastructure index</option> <option value="Port Capacity Index">Port Capacity Index</option> <option value="Efficiency of process index">Efficiency of process index</option> <option value="Service Frequency index">Service Frequency index</option> <option value="Centre of gravity">Centre of gravity</option> <option value="Digital connectivity">Digital connectivity</option> <option value="Green facilities">Green facilities</option> <option value="Overall CCI">Overall CCI</option> </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-1"><select class="top-drp" id="bcn_top_value">   <option selected="" value="5"> Top 5 </option>   <option value="10"> Top 10</option>   <option value="15"> Top 15</option>   </select></div>
+                                    <div class="col-1"> <button id="" class="btn btn-success main-btn" onclick="FilterBCN_Table()" style="display: block; text-align: center;"> Submit </button> </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive col-12">
+                                <table id="BCNActivityTable">
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div id="table4Grid">
+            <div class="row DepotsTablearea" style="display:none;">
+                <div class="col-xl-12 stretch-card grid-margin">
+                    <div class="card">
+                        <div class="card-body row">
+                            <div class="tableHeader">
+                                Depots Table 
+                            </div>
+                            <div class="table-responsive col-12">
+                                <table id="DepotsTable">
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         
+        <div id="table5Grid">
+            <div class="row MADActivityTablearea" style="display:none;">
+                <div class="col-xl-12 stretch-card grid-margin">
+                    <div class="card">
+                        <div class="card-body row">
+                            <div class="tableHeader">
+                               MAD Activity Table 
+                            </div>
+                            <div class="table-responsive col-12">
+                                <table id="MADActivityTable">
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div id="table6Grid">
+            <div class="row PortterminalsTablearea" style="display:none;">
+                <div class="col-xl-12 stretch-card grid-margin">
+                    <div class="card">
+                        <div class="card-body row">
+                            <div class="tableHeader">
+                               Port terminals Table 
+                            </div>
+                            <div class="table-responsive col-12">
+                                <table id="PortterminalsTable">
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    @*tab4*@
+    <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="contact-tab">...</div>
+
+</div>
+
+<script>
+var el = document.getElementById('tab3');
+var sortable = Sortable.create(el)
+</script>

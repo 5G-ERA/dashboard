@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-eu_projects_main_platform-C8510CAE-EB9E-4312-8F5F-74D6963EE8D9</UserSecretsId>
+    <RootNamespace>eu_projects_main_platform</RootNamespace>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\Artefacts\**" />
+    <Content Remove="wwwroot\Artefacts\**" />
+    <EmbeddedResource Remove="wwwroot\Artefacts\**" />
+    <None Remove="wwwroot\Artefacts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bogus" Version="34.0.2" />
+    <PackageReference Include="Confluent.Kafka" Version="1.4.0" />
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+    <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="6.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
+    <PackageReference Include="MongoDB.Driver" Version="2.16.1" />
+    <PackageReference Include="MQTTnet" Version="3.0.16" />
+    <PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="3.0.16" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Omu.Awem.Trial" Version="7.0.8" />
+    <PackageReference Include="Omu.AwesomeMvc.Trial" Version="7.0.8" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
+    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="20.3.0.48" />
+    <PackageReference Include="Syncfusion.EJ2.Spreadsheet.AspNet.Core" Version="20.3.0.48" />
+    <PackageReference Include="System.Data.OleDb" Version="6.0.0" />
+    <PackageReference Include="System.Net.Http.Json" Version="7.0.0" />
+    <PackageReference Include="ValueInjecter" Version="3.2.0" />
+    <PackageReference Include="YamlDotNet" Version="13.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\5gepicentre\RequestModels\CTTC\" />
+    <Folder Include="wwwroot\Artefacts\" />
+    <Folder Include="wwwroot\Artefacts\UC_EDI\" />
+    <Folder Include="wwwroot\eu_projects\astep\NewFolder1\" />
+    <Folder Include="wwwroot\eu_projects\astep\NewFolder\" />
+    <Folder Include="wwwroot\images\platform_logos\astep\" />
+    <Folder Include="wwwroot\images\platform_logos\5gEpicentre\" />
+    <Folder Include="wwwroot\files\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,60 @@
+﻿@model eu_projects_main_platform.Models._5gera.ActivePolicy
+
+<div>
+
+    <form id="myForm">
+        @Html.HiddenFor(m=>m.id)
+
+        @Html.TextBoxFor(model => model.name, new { @class = "form-control", @placeholder = "Name" })
+
+        @Html.TextBoxFor(model => model.type, new { @class = "form-control", @placeholder ="Policy Type" })
+
+        @Html.TextBoxFor(model => model.description, new { @class = "form-control", @placeholder ="Description" })
+
+        @*@Html.DropDownListFor(model => model.isActive, ViewBag.DepartmentList as SelectList, "--select--", new { @class = "form-control" })*@
+
+        <a href="#" id="btnSubmit" class="btn btn-success btn-block">@if (!string.IsNullOrWhiteSpace(Model.id))
+            {
+                <span>Update</span>
+            }
+            else
+            {
+                <span>Save</span>
+            } </a>
+
+    </form>
+
+    @*<div style="text-align:center;display:none" id="loaderDiv">
+        <img src="~/Content/InternetSlowdown_Day.gif" width="150" />
+    </div>*@
+
+</div>
+<script>
+
+    $(document).ready(function () {
+
+        $("#btnSubmit").click(function () {
+
+            $("#loaderDiv").show();
+
+            var myformdata = $("#myForm").serialize();
+
+            $.ajax({
+
+                type: "POST",
+                url: "/_5gera/MiddlewarePolicy",
+                data: myformdata,
+                success: function () {
+                    $("#loaderDiv").hide();
+                    $("#myModal").modal("hide");
+                    window.location.href = "/_5gera/Index";
+
+                }
+
+            })
+        })
+
+    })
+
+
+</script>

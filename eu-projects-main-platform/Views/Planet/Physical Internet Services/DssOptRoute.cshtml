@@ -1,0 +1,141 @@
+﻿@{
+    ViewData["Title"] = "Home >  Physical Internet Services > Route Optimization";
+}
+
+<style>
+    .stat-card {
+        background: #fff;
+        padding: 25px;
+        margin-bottom: 25px;
+        border-radius: 5px;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s;
+    }
+    .stat-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+    .stat-card__icon-circle {
+        height: 60px;
+        width: 60px;
+        border-radius: 60px;
+        background-color: rgba(4, 255, 0, 0.33);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .stat-card__icon-circle .stat-icon{
+        font-size: 30px;
+        color: #0c6e55;
+    }
+    .stat-card__icon .stat-card__icon--success .stat-card__icon-circle {
+        background: rgba(40, 167, 69, 0.2);
+    }
+    .stat-card__icon .stat-card__icon--success .stat-card__icon-circle i {
+        color: #28a745;
+    }
+    .stat-card__icon .stat-card__icon--danger .stat-card__icon-circle {
+        background: rgba(220, 53, 69, 0.2);
+    }
+    .stat-card__icon .stat-card__icon--danger .stat-card__icon-circle i {
+        color: #dc3545;
+    }
+    .stat-card__icon .stat-card__icon--warning .stat-card__icon-circle {
+        background: rgba(255, 193, 7, 0.2);
+    }
+    .stat-card__icon .stat-card__icon--warning .stat-card__icon-circle i {
+        color: #ffc107;
+    }
+    .stat-card__icon .stat-card__icon--primary .stat-card__icon-circle {
+        background: rgba(0, 123, 255, 0.2);
+    }
+    .stat-card__icon .stat-card__icon--primary .stat-card__icon-circle i {
+        color: #007bff;
+    }
+</style>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBimtX2LxnwbpowGkJhFGAtkVTsYAdNcsM&callback=initMap&libraries=drawing,geometry"></script>
+<script src="~/eu_projects/planet/js/googlemaps_cracked_script.js" type="text/javascript" asp-append-version="true"></script>
+
+<div class="row header-section">
+    <div class="titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+
+    <div id="gird-settings">
+    </div>
+</div>
+
+<div class="usdescript-date">
+    <div class="row ucdescriptionchosen" id="opt_routes_date_chooser_block">
+
+        <div class="col-md-2 col-sm-12"><label for="ucdescription"> Select Route Date</label></div>
+        <div class="col-md-9 col-sm-10">
+            <select id="RouteDate_id" onchange="OnRouteDateChange()"></select>
+        </div>
+        <div class="col-md-12 col-12 scnariobuttons main-buttons-with-icons scenariobuttons" style="margin-top: 1%; text-align: right">'
+            <button class="scenariobuttons btn btn-success" style="background-color: #0c6e55; border-color: #0c6e55" onclick="AddNewDateRoutes()" type="button">Add New Orders<i class="marginicon fas fa-plus" style="margin-left: 5px"></i></button>
+        </div>
+        <div class="col-12" id="aggreated_route_block" style="margin-top: 1%">
+
+        </div>
+    </div>
+</div>
+
+<div class="usdescript-date" id="van_Block">
+    <div class="row ucdescriptionchosen" id="van_selection_block">
+
+    </div>
+</div>
+
+<div class="usdescript-date" id="optimized_route_block">
+    <div class="row ucdescriptionchosen" id="map_block">
+
+    </div>
+    <br/>
+    <div class="row ucdescriptionchosen" id="van_route_details">
+
+    </div>
+</div>
+
+<div class="row KPIDatatableArea" style="display:none;">
+    <div class="col-xl-12 stretch-card grid-margin">
+        <div class="card">
+            <div class="card-body row">
+                        
+                <div class="table-responsive col-12" >
+                    <table id="RouteOptimizationKPITable">
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+    
+<div class="homemodal">
+    <div class="modal fade" id="sub_modal_planet" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

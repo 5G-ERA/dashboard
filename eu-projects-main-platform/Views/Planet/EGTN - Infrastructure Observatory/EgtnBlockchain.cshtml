@@ -1,0 +1,288 @@
+﻿@{
+    ViewData["Title"] = "Home > View Documents > Blockchain Secured transactions";
+}
+
+<script type="text/javascript" src="~/eu_projects/planet/js/jsonTreeViewer/jsonViewer.js" asp-append-version="true"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js" asp-append-version="true"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.0.37/jspdf.plugin.autotable.js" asp-append-version="true"></script> 
+
+<div class="row">
+    <div class="titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+</div>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+
+  @*<li class="nav-item" role="presentation">
+    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true">Visibility Smart Contracts</button>
+  </li>*@
+
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false" onclick="getEgtnBcAISCTableData()">Visibility Smart Contracts</button>
+  </li>
+
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#tab3" type="button" role="tab" aria-controls="tab3" aria-selected="false" onclick="getEgtnBcLogisticsTableData()">Logistics Events</button>
+  </li>
+  
+  @*<li class="nav-item" role="presentation">
+    <button class="nav-link" id="contact-tab2" data-bs-toggle="tab" data-bs-target="#tab4" type="button" role="tab" aria-controls="tab4" aria-selected="false" onclick="getEgtnBcMetaDataTableData()">Metadata</button>
+  </li>*@
+  
+</ul>
+
+@*tab contents*@
+<div class="tab-content" id="myTabContent">
+
+    @*tab1*@
+  <div class="tab-pane fade" id="tab1" role="tabpanel" aria-labelledby="home-tab">
+
+    
+            <div class="row">
+                <div class="col-md-4 col-xs-12 pdfFiles-section">
+                    <div class="col-12 row" id="filesDropdownCotainer">
+                
+                    </div>
+                    <input type="text" class="defaultInput" name="Search" placeholder="Search..." maxlength="250" value="" >
+        
+                    <div class="pdfFiles-container">
+            
+                        <div class="pdfFiles" >
+                            <div class="pdfFilesInfo" onclick="selectPDFFile('blockchain1.pdf')">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                Blockchain sample
+                                @*<div class="top-bot-info">
+                                    <span>File Name</span>
+                                    <p>Author</p>
+                                </div>*@
+                            </div>
+                
+                            <div class="pdfFilesInfo-end">
+                                <div><i class="fa-solid fa-caret-down"></i></div>
+                                <div>01/01/2001</div>
+                            </div>
+
+                        </div>
+
+                        
+                        <div class="pdfFiles" >
+                            <div class="pdfFilesInfo" onclick="selectPDFFile('sample1.pdf')">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                Sample1
+                                @*<div class="top-bot-info">
+                                    <span>File Name</span>
+                                    <p>Author</p>
+                                </div>*@
+                            </div>
+                
+                            <div class="pdfFilesInfo-end">
+                                <div><i class="fa-solid fa-caret-down"></i></div>
+                                <div>01/01/2001</div>
+                            </div>
+
+                        </div>
+            
+                        <div class="pdfFiles">
+                            <div class="pdfFilesInfo"  onclick="selectPDFFile('sample2.pdf')">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                Sample2
+                                @*<div class="top-bot-info">
+                                    <span>File Name</span>
+                                    <p>Author</p>
+                                </div>*@
+                            </div>
+                
+                            <div class="pdfFilesInfo-end">
+                                <div><i class="fa-solid fa-caret-down"></i></div>
+                                <div>01/01/2001</div>
+                            </div>
+
+                        </div>
+
+                        
+                        <div class="pdfFiles">
+                            <div class="pdfFilesInfo"  onclick="selectExcelFile('sample3.xls')">
+                                <i class="fa-solid fa-file-excel"></i>
+                                Sample3
+                                @*<div class="top-bot-info">
+                                    <span>File Name</span>
+                                    <p>Author</p>
+                                </div>*@
+                            </div>
+                
+                            <div class="pdfFilesInfo-end">
+                                <div><i class="fa-solid fa-caret-down"></i></div>
+                                <div>01/01/2001</div>
+                            </div>
+
+                        </div>
+
+                        
+                        <div class="pdfFiles">
+                            <div class="pdfFilesInfo"  onclick="selectExcelFile('sample4.xlsx')">
+                                <i class="fa-solid fa-file-excel"></i>
+                                Sample4
+                                @*<div class="top-bot-info">
+                                    <span>File Name</span>
+                                    <p>Author</p>
+                                </div>*@
+                            </div>
+                
+                            <div class="pdfFilesInfo-end">
+                                <div><i class="fa-solid fa-caret-down"></i></div>
+                                <div>01/01/2001</div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-8 col-xs-12 pdfViewer-section" id="pdf-render">
+                    <embed id="embedPDF" src="~/eu_projects/planet/assets/blockchain1.pdf" width="100%" height="100%"/>
+                </div>
+    
+                <div class="col-md-8 col-xs-12 pdfViewer-section" id="excel-render" style="display:none">
+
+                </div>
+            </div>     
+
+   </div>
+
+
+      @*tab2*@
+  <div class="tab-pane fade show active" id="tab2" role="tabpanel" aria-labelledby="profile-tab">
+       <div>
+           <div class="row BcAISCTablearea" style="display: none;">
+               
+               <div class="col-xl-12 stretch-card grid-margin">
+                   <div class="card">
+                       <div class="card-body row">
+
+                           <div class="table-responsive col-12">
+                               <table id="BcAISCTable">
+                               </table>
+                               
+                           </div>
+
+                       </div>
+                   </div>
+               </div>
+           </div>
+           
+           <div class="row BcAISCTablearea" style="display:none;">
+               <div class="col-xl-12 stretch-card grid-margin">
+                   <div class="card">
+                       <div class="card-body row">
+                        
+                           <div class="table-responsive col-12" >
+                               <table id="BcKPITable">
+                               </table>
+                           </div>
+
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+  </div>
+
+      @*tab3*@
+  <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="contact-tab">
+      
+      <div>
+          <div class="row BcLogTablearea" style="display: none;">
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="width:99%">
+                  <button class="btn btn-success me-md-2 isDisabled" type="button" id="view_blockchain_doc_btn" onclick="ViewBlockchainDocument()" style="margin-right: 5px; background-color: #3D6D57"><i class="fa-solid fa-eye " style="color: white; font-size:12px"></i> View Document</button>
+              </div>
+              <div class="col-xl-12 stretch-card grid-margin">
+                  <div class="card">
+
+                      <div class="row advancedSearchContainer" id="advancedSearchContainer-Logistics-Table" style="display: none"> </div>
+
+
+                      <div class="card-body row">
+
+                          @*table-content*@
+                          <div class="table-responsive col-12">
+                              <table id="Logistics-Table">
+                              </table>
+                              <input id="selected_doc_reference" type="hidden"/>
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+         <div class="row BcLogTablearea" style="display:none;">
+              <div class="col-xl-12 stretch-card grid-margin">
+                  <div class="card">
+                      <div class="card-body row">
+                        
+                          <div class="table-responsive col-12" >
+                              <table id="BcLogKPITable">
+                              </table>
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+          </div> 
+      </div>
+
+  </div>
+
+
+  
+      @*tab4*@
+  <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="profile-tab">
+       <div>
+            <div class="row BcMetadataTablearea" style="display:none;">
+                <div class="col-xl-12 stretch-card grid-margin">
+                    <div class="card">
+
+                        <div class="row advancedSearchContainer" id="advancedSearchContainer-Blockchain-Metadata-Table" style="display:none"> </div>
+
+                        <div class="card-body row">
+                        
+                            @*table-content*@
+                            <div class="table-responsive col-12" >
+                                <table id="Blockchain-Metadata-Table">
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </div>
+
+</div>
+
+<div class="homesubmodal">
+    <div class="modal fade" id="sub_modal_planet" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

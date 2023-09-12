@@ -1,0 +1,392 @@
+﻿@{
+    ViewData["Title"] = "Test Scenarios";
+
+}
+<link rel="stylesheet" href="~/eu_projects/planet/trackTrace.css" asp-append-version="true">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBimtX2LxnwbpowGkJhFGAtkVTsYAdNcsM&callback=initMap&libraries=drawing,geometry"></script>
+<script src="~/eu_projects/planet/js/googlemaps_cracked_script.js" type="text/javascript" asp-append-version="true"></script>
+
+<script src="~/eu_projects/5groutes/projectFiles/ExperimentResults.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/VisualiseKPIs.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/5groutesHelper.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/DataManagement.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/DropdownsHandlers.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/TablesInfoHandler.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/5groutesGraphs.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/5groutesFileInputHandler.js" asp-append-version="true"></script>
+<script src="~/js/moment.js" asp-append-version="true" ></script>
+
+<div class="row">
+    <div class="col-12 titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+</div>
+
+<div class="usdescript-date">
+    <div class="row ucdescriptionchosen">
+        <div class="col-md-2 col-sm-12">
+            <label for="ucdescription">Select Use Case</label>
+        </div>
+        <div class="col-md-9 col-sm-10">
+            <select name="ucdesc" id="ucdesc_id">
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <hr style="width:100%;text-align:center;margin-left:0">
+        </div>
+    </div>
+    <div class="generalinfoclass">
+        <div class="row">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12">
+                            Use Case Code
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_id" class="uc_field" readonly style="display: none">
+                            <input type="text" id="uc_id_string" class="uc_field" readonly>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            Use Case Description
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_description_id" class="uc_field" readonly>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            Category
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_category" class="uc_field" readonly>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12">
+                            Responsible
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_responsible_id" class="uc_field" readonly>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            Contact
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_contact_id" class="uc_field" readonly>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            Date
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="date" id="uc_date_id" class="uc_field" readonly>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="errormessageusecase col-12">
+        </div>
+    </div>
+</div> @*end of general info div*@
+
+<div class="scenarioarea">
+    <div id="scenarioTypebloc"></div>
+    <div class="row scenariodescriptionchosen">
+        <div class="col-sm-2">
+            <label>Test Scenario Description</label>
+        </div>
+        <div class="col-sm-9">
+            <select id="scenariodesc_id" disabled data-placeholder="Please choose a Scenario First">
+            </select>
+        </div>
+    </div>
+
+    @*<div class="accordion analytic-accordion">
+    <div class="row">
+    <div class="col-sm-12">
+    <hr style="width:100%;text-align:center;margin-left:0">
+    </div>
+    </div>
+    <div class="accordion-item">
+    <h2 class="accordion-header" id="analytic-header">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAnalytics" aria-expanded="false" aria-controls="collapseTwo">
+    Analytics
+    </button>
+    </h2>
+
+    <div id="collapseAnalytics" class="accordion-collapse collapse" aria-labelledby="analytic-header">
+    <div class="accordion-body">
+    <div class="row">
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-9">
+    <div id="scenario_spider_chart"></div>
+    <button class="col-2 btn btn-info offset-5" id="refresh_scenario_graph">Refresh</button>
+    </div>
+    <div class="col-3">
+    <div class="list-group" id="scenario_legend_id"></div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-6" id="composite_kpi_analytics_left_block"></div>
+    <div class="col-6" id="composite_kpi_analytics_right_block"></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>*@
+    @*</div>*@
+</div>
+<div class="testscenarioarea">
+    <div class="row testchosen">
+        <div class="col-sm-2">
+            <label>Select Test</label>
+        </div>
+        <div class="col-sm-10" id="test_scenario_selector">
+            <select id="testscenariodesc_id" placeholder="Select a Scenario Test" disabled></select>
+        </div>
+        <div class="col-12">
+            <div id="testDescriptionFieldbloc" class="row"></div>
+        </div>
+        <div class="col-md-12 col-12 testscnariobuttons main-buttons-with-icons">
+            <span id="test_scenario_status" class="label-danger"></span>
+            <label style="display:none" id="lbldomain"></label>
+            <label style="display:block" id="lblMqttClientId" hidden></label>
+
+            <button class="addnewtestscenariobutton scenariobuttons btn-success" onclick="AddNewTestScenario()" type="button" style="">Start New Test<i class="marginicon fas fa-plus"></i></button>
+            <button class="stoprunningtestscenariobutton scenariobuttons" onclick="StopRunningTestScenario()" id="StopTest" type="button" style="background-color:#dd3311">Stop Test<i class="marginicon fas fa-stop"></i></button>
+            <button class="stopNetworkServicebutton scenariobuttons" onclick="StopNetworkService()" id="stopNetworkService" type="button" style="background-color:#dd3311">Stop Network Service<i class="marginicon fas fa-stop"></i></button>
+            <button class="edittestscenariobutton scenariobuttons" onclick="EditTestScenario()" type="button" style="">Edit Test<i class="marginicon fas fa-pencil"></i></button>
+            <button class="deletetestscenariobutton scenariobuttons btn-danger" onclick="DeleteTestScenario()" type="button" style="">Delete Test<i class="marginicon fas fa-trash"></i></button>
+        </div>
+    </div>
+
+
+    <div class="generalinfoclass">
+        <div class="accordion" id="KPItables">
+            <div class="row">
+                <div class="col-sm-12">
+                    <hr style="width:100%;text-align:center;margin-left:0">
+                </div>
+            </div>
+            <div class="accordion-item" id="mqtt-data">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseFive">
+                       MQTT Response
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#KPItables">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="container-fluid">
+                               <div id="test_Mqtt_status"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Test Measurements
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#KPItables">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="container-fluid">
+                                <div id="uc_Scenario_Measurements" class="row">
+                                    <div id="uc_measurement_left_block" class="col-md-12 col-lg-6"></div>
+                                    <div id="uc_measurement_right_block" class="col-md-12 col-lg-6"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*Attachments*@
+            <div class="accordion-item">
+                @*Start of Service KPIs*@
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Attachments
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#KPItables">
+                    <div class="accordion-body">
+                        <div class="row">
+                            <div class="col-md-12" id="test_attachement">
+                            </div>
+                        </div>
+                    </div>
+                </div> @*END OF Attachements*@
+            </div>
+            @*Test Results*@
+            <div class="accordion-item">
+                @*Start of Service KPIs*@
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed cst-headingThree" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="headingThree">
+                        Test Results
+                    </button>
+                </h2>
+
+             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#KPItables">
+                    <div class="accordion-body">
+                        <div class="scenarioarea experimentresults_dropdown_area" style="width:100%;">
+                            <div class="row experimentresultsevaluationchosen">
+                                <div class="col-3">
+                                    <label>Test Results</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <select name="ExperimentResults" id="experimentresults_dropdown_id" disabled data-placeholder="Please choose Test First">
+                                    </select>
+                                    <input type="hidden" id="attached_file_name" />
+                                </div>
+                            </div>
+                        </div>
+                        @*test result datatable*@
+                        <div class="experimentresults_data_area">
+                            <table id="experimentresultsevaluation_table" width="100%"> </table>
+                        </div>
+                       @* test result avg*@
+                        <div class="col-md-12 ColumnTestResult-bottomContainer-main" style="margin-top:10px"></div>
+                 
+                        <div class="col-12">
+                            <div class="row">
+                                @* test result line-chart*@
+                                <div class="col-md-12 experimentresults_data_area" id="line_charts">
+                                    <div id="scenario_line_chart" class="line_charts_cst" style="height:400px; width:100%;"></div>
+                                </div>
+                                <div class="col-md-12 experimentresults_data_area">
+                                    @*while upload file and load datatable should be display this map1 and hide map div *@
+                                    <div id="map1" class="col-md-12" style="height:300px;display:none"></div>
+                                    <div style="display:none" class="cst-map2">
+                                        @*while select any row in the datatable should be display this map and hide map1 div*@
+                                        <div class="col-md-12" id="google_testresult_route_map" style="height: 300px;"></div>
+                                    @*    <div class="col-md-12 trackTestResult-bottomContainer-main" style="margin-top:10px"></div>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                </div> @*END OF Test Results*@
+              
+            </div>
+            @*Test sample*@
+            <div class="accordion-item">
+                @*Start of Service KPIs*@
+                @*<h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed cst-headingThree" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="headingFour">
+                        Test Sample
+                    </button>
+                </h2>*@
+
+                <div id="headingFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#KPItables">
+                    <div class="accordion-body">
+                        <h2>Welcome</h2>
+                    </div>
+                </div> @*END OF Test sample*@
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="homemodal">
+    <div class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="overlay">
+    <div class="loader"> </div>
+</div>
+
+<style type="text/css">
+    #overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00000024;
+  z-index: 2;
+  cursor: pointer;
+}
+.loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #3498db;
+        width: 100px;
+        height: 100px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+        margin-top: 25%;
+        margin-left: 50%;
+    }
+
+/*PopUp*/
+    
+
+/* Safari */
+@@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+    div.dt-button-collection button.dt-button:active:not(.disabled), div.dt-button-collection button.dt-button.active:not(.disabled), div.dt-button-collection div.dt-button:active:not(.disabled), div.dt-button-collection div.dt-button.active:not(.disabled), div.dt-button-collection a.dt-button:active:not(.disabled), div.dt-button-collection a.dt-button.active:not(.disabled) {
+        background-color: #dadada;
+        background-image: -webkit-linear-gradient(top, #76b900 0%, #dadada 100%);
+        background-image: -moz-linear-gradient(top, #76b900 0%, #dadada 100%);
+        background-image: -ms-linear-gradient(top, #76b900 0%, #dadada 100%);
+        background-image: -o-linear-gradient(top, #76b900 0%, #dadada 100%);
+        background-image: linear-gradient(to bottom, #76b900 0%, #dadada 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f0f0f0', EndColorStr='#dadada');
+        box-shadow: inset 1px 1px 3px #666;
+        font-family: 'Trebuchet MS',sans-serif;
+        font-size: 12px;
+    }
+    button.dt-button:active:not(.disabled):hover:not(.disabled), button.dt-button.active:not(.disabled):hover:not(.disabled), div.dt-button:active:not(.disabled):hover:not(.disabled), div.dt-button.active:not(.disabled):hover:not(.disabled), a.dt-button:active:not(.disabled):hover:not(.disabled), a.dt-button.active:not(.disabled):hover:not(.disabled) {
+            box-shadow: inset 1px 1px 3px #999999;
+            background-color: #cccccc;
+            background-image: -webkit-linear-gradient(top, #ADFF2F 0%, #ccc 100%);
+            background-image: -moz-linear-gradient(top, #ADFF2F 0%, #ccc 100%);
+            background-image: -ms-linear-gradient(top, #ADFF2F 0%, #ccc 100%);
+            background-image: -o-linear-gradient(top, #ADFF2F 0%, #ccc 100%);
+            background-image: linear-gradient(to bottom, #ADFF2F 0%, #ccc 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#eaeaea', EndColorStr='#cccccc');
+        }
+</style>

@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Login Page";
+}
+@model eu_projects_main_platform.Models.Authentication.LoginViewModel
+<link rel="stylesheet" href="~/css/login_page/login_page.css" asp-append-version="true" />
+<form id="LoginForm" asp-controller="Authentication" asp-action="AccountVerification" method="post">
+    <div class="login mainloginscreen">
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+                <!-- Tabs Titles -->
+                <div class="fadeIn first">
+                    @{
+                        <img class="login-project-image" src="~/images/login/@(ViewBag.HostIdentifier).png" width="250" height="77">
+                    }
+                </div>
+                <h2 class="active">Please Sign-In</h2>
+                @if (!String.IsNullOrEmpty(ViewBag.FatalError))
+                {
+                    <div class="errormessage">
+                        @ViewBag.FatalError
+                    </div>
+                }
+                <div class="login">
+                    <input type="text" id="Username" class="fadeIn second usernameclass" name="Username" placeholder="Username" maxlength="250" value="" autocomplete="off">
+                    <input type="password" id="Password" class="fadeIn third passwordclass" name="Password" placeholder="Password" title="Password should be 5 characters minimum" maxlength="500">
+                    <input type="submit" class="test fadeIn fourth" value="Log In">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,171 @@
+﻿@{
+    ViewData["Title"] = "Analytics";
+
+}
+
+<script src="~/eu_projects/5groutes/projectFiles/ExperimentResults.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/VisualiseKPIs.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/5groutesHelper.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/DataManagement.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/DropdownsHandlers.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/TablesInfoHandler.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/5groutesGraphs.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/5groutesFileInputHandler.js" asp-append-version="true"></script>
+
+<div class="row">
+    <div class="col-12 titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+</div>
+
+<div class="usdescript-date">
+    <div class="row ucdescriptionchosen">
+        <div class="col-md-2 col-sm-12">
+            <label for="ucdescription">Select Use Case</label>
+        </div>
+        <div class="col-md-9 col-sm-10">
+            <select name="ucdesc" id="ucdesc_id">
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <hr style="width:100%;text-align:center;margin-left:0">
+        </div>
+    </div>
+    <div class="generalinfoclass">
+        <div class="row">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12">
+                            Use Case Code
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_id" class="uc_field" readonly style="display: none">
+                            <input type="text" id="uc_id_string" class="uc_field" readonly>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            Use Case Description
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_description_id" class="uc_field" readonly>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            Category
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_category" class="uc_field" readonly>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12">
+                            Responsible
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_responsible_id" class="uc_field" readonly>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            Contact
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_contact_id" class="uc_field" readonly>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            Date
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="date" id="uc_date_id" class="uc_field" readonly>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="errormessageusecase col-12">
+        </div>
+    </div>
+</div> @*end of general info div*@
+
+<div class="scenarioarea">
+    <div id="scenarioTypebloc"></div>
+    <div class="row scenariodescriptionchosen">
+        <div class="col-sm-2">
+            <label>Test Scenario Description</label>
+        </div>
+        <div class="col-sm-9">
+            <select id="scenariodesc_id" disabled data-placeholder="Please choose a Scenario First">
+            </select>
+        </div>
+    </div>
+    
+    <div class="accordion analytic-accordion">
+        <div class="row">
+            <div class="col-sm-12">
+                <hr style="width:100%;text-align:center;margin-left:0">
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="analytic-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAnalytics" aria-expanded="true" aria-controls="collapseTwo">
+                    Analytics
+                </button>
+            </h2>
+        
+            <div id="collapseAnalytics" class="accordion-collapse collapse show" aria-labelledby="analytic-header">
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-9">
+                                    <div class="row">
+                                        <div class="col-6" id="scenario_spider_chart"></div>
+                                        <div class="col-6" id="aggregated_scenario_spider_chart"></div>
+                                    </div>
+                                    <button class="col-2 btn btn-info offset-5" id="refresh_scenario_graph">Refresh</button>
+                                </div>
+                                <div class="col-3">
+                                    <div class="list-group" id="scenario_legend_id"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6" id="composite_kpi_analytics_left_block"></div>
+                                <div class="col-6" id="composite_kpi_analytics_right_block"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="homemodal">
+    <div class="modal fade" id="5groutesmodal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

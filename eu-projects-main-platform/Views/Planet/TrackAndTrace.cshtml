@@ -1,0 +1,233 @@
+﻿@{
+    ViewData["Title"] = "Home > Consignment Track & Trace ";
+}
+
+<link rel="stylesheet" href="~/eu_projects/planet/trackTrace.css" asp-append-version="true">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBimtX2LxnwbpowGkJhFGAtkVTsYAdNcsM&callback=initMap&libraries=drawing,geometry"></script>
+<script src="~/eu_projects/planet/js/googlemaps_cracked_script.js" type="text/javascript" asp-append-version="true"></script>
+
+
+<div class="row header-section">
+    <div class="titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+</div>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true">Region 1</button>
+    </li>
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false">Region 2 </button>
+    </li>
+</ul>
+@*tab contents*@
+<div class="tab-content" id="myTabContent">
+    <div id="gird-settings">
+    </div>
+
+    @*tab1*@
+    <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="home-tab">
+
+        <div class="row">
+            <div class="col-xl-12 stretch-card grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="TrackTraceDropdown row" id="Track_and_Trace_Region1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row TrackingTablearea" id="trackingTableare_region1" style="display: none;">
+            <div class="col-xl-12 stretch-card grid-margin">
+                <div class="card">
+                    <div class="row advancedSearchContainer" id="advancedSearchContainer-Track-Trace-Table" style="display: none"> </div>
+                    <div class="card-body row large-flex" id="table-map-container">
+                        @*table-content*@
+
+                        <div class="card table-responsive table-responsive-h" id="tableGrid" style="flex: 7; margin-right: 2%; padding: 5px;">
+                            <span class="handle"><i class="fa-solid fa-arrows-up-down-left-right"></i></span>
+                            <table id="Track-Trace-Table" class="table table-striped table-bordered">
+                            </table>
+                        </div>
+
+                        <div class="card" style="flex: 5; display: flex; flex-direction: column; margin-right: 2%; padding: 5px;" id="map1Grid">
+                            <span class=""><i class="fa-solid fa-arrows-up-down-left-right handle" style="float: right"></i></span>
+
+                            @*map-content*@
+                            <div class="trackDetail-topContainer-main" style="min-height: 600px">
+                                @*<img class="map-img" src="~/eu_projects/planet/assets/map.png">*@
+                                @*<div style="width: 100%"><iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=eBOS%20Tower,%20office%20101%20Archiepiskopou%20Makariou%20III%20and,%20Mesaorias%201,%20Lakatamia%202322,%20Cyprus+()&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/marine-gps/">navigation gps</a></iframe></div*@
+                                @*<div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Madrid%20Spain%20Temple,%20Calle%20Templo,%20Madrid,%20Spain+()&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/wearable-gps/">gps smartwatches</a></iframe></div>*@
+                                <div style="width: 100%">
+                                    <div id="google_planet_map" width="100%" style="height: 600px"></div>
+                                </div>
+                            </div>
+
+                            @*detai-content*@
+                            <div class="trackDetail-bottomContainer-main" id="trackDetail_region1">
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <br/>
+                    <div id="ngs_iframe_block"></div>
+                </div>
+            </div>
+
+            <div id="ContainerGraph" class="row">
+
+                <div class="col-xl-6" id="temp1Grid">
+                    <div class="col-xl-12 stretch-card grid-margin Charts" style="display: none">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <span class="handle2"><i class="fa-solid fa-arrows-up-down-left-right"></i></span>
+
+                                    <label style="text-align: center;"> Temperature</label>
+                                    <div class="currentTemperatureGraphArea col-12">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-6" id="humidity1Grid">
+                    <div class="col-xl-12 stretch-card grid-margin Charts" style="display: none">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <span class="handle2"><i class="fa-solid fa-arrows-up-down-left-right"></i></span>
+
+                                    <label style="text-align: center;"> Humidity</label>
+                                    <div class="currentHumidityGraphArea col-12">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-xl-6" id="temp2Grid">
+                    <div class="col-xl-12 stretch-card grid-margin Charts" style="display: none">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <span class="handle2"><i class="fa-solid fa-arrows-up-down-left-right"></i></span>
+
+                                    <div class="temperaturePerTimeGraphArea col-12">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-xl-6" id="humidity2Grid">
+                    <div class="col-xl-12 stretch-card grid-margin Charts" style="display: none">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <span class="handle2"><i class="fa-solid fa-arrows-up-down-left-right"></i></span>
+
+                                    <div class="humidityPerTimeGraphArea col-12">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-12" id="map2Grid">
+                    <div class="col-xl-12 stretch-card grid-margin Charts" style="display: none">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <span class="handle2"><i class="fa-solid fa-arrows-up-down-left-right"></i></span>
+
+                                    <label style="text-align: center;"> Map</label>
+                                    <div class="mapGraphArea col-12">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*tab2*@
+    <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="row">
+            <div class="col-xl-12 stretch-card grid-margin">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="TrackTraceDropdown row" id="Track_and_Trace_Region2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row TrackingTablearea" id="trackingTableare_region2" style="display: none;">
+            <div class="col-xl-12 stretch-card grid-margin">
+                <div class="card">
+                    <div class="row advancedSearchContainer" id="advancedSearchContainer-Track-Trace-Table2" style="display: none"> </div>
+                    <div class="card-body row large-flex" id="table-map-container2">
+                        @*table-content*@
+
+                        <div class="card table-responsive table-responsive-h" id="tableGrid" style="flex: 7; margin-right: 2%; padding: 5px;">
+                            <span class="handle"><i class="fa-solid fa-arrows-up-down-left-right"></i></span>
+                            <table id="Track-Trace-Table2">
+                            </table>
+                        </div>
+
+                        <div class="card" style="flex: 5; display: flex; flex-direction: column; margin-right: 2%; padding: 5px;" id="map1Grid2">
+                            <span class=""><i class="fa-solid fa-arrows-up-down-left-right handle" style="float: right"></i></span>
+
+                            @*map-content*@
+                            <div class="trackDetail-topContainer-main" style="min-height: 600px">
+                                @*<img class="map-img" src="~/eu_projects/planet/assets/map.png">*@
+                                @*<div style="width: 100%"><iframe width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=eBOS%20Tower,%20office%20101%20Archiepiskopou%20Makariou%20III%20and,%20Mesaorias%201,%20Lakatamia%202322,%20Cyprus+()&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/marine-gps/">navigation gps</a></iframe></div*@
+                                @*<div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Madrid%20Spain%20Temple,%20Calle%20Templo,%20Madrid,%20Spain+()&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/wearable-gps/">gps smartwatches</a></iframe></div>*@
+                                <div style="width: 100%">
+                                    <div id="google_planet_map2" width="100%" style="height: 600px"></div>
+                                </div>
+                            </div>
+
+                            @*detai-content*@
+                            <div class="trackDetail-bottomContainer-main" id="trackDetail_region2">
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <br/>
+                    <div id="ngs_iframe_block1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var sortable = Sortable.create(document.getElementById('ContainerGraph'),{
+	handle: ".handle2"
+})
+    var sortable2 = Sortable.create(document.getElementById('table-map-container'),{
+	handle: ".handle"
+})
+</script>
+

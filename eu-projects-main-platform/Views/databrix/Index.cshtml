@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "DataBri-x DataViz Tool ";
+}
+
+<script src="~/eu_projects/databrix/graph/graph.js" asp-append-version="true"></script>
+
+<div class="row">
+    <div class="titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+</div>
+<br />
+
+<div class="dbcards-list">
+
+    <div class="dbcard 1" onclick="ShowCase1View()">
+        <div class="dbcard_title dbtitle-white" >
+            <p class="dbf">Use Case 1</p>
+        </div>
+    </div>
+
+    <div class="dbcard 2" onclick="ShowCase2View()">
+        <div class="dbcard_title dbtitle-white">
+            <p class="dbf">Use Case 2</p>
+        </div>
+    </div>
+
+    <div class="dbcard 3" onclick="ShowCase3View()">
+        <div class="dbcard_title dbtitle-white">
+            <p class="dbf">Use Case 3</p>
+        </div>
+    </div>
+
+
+</div>
+

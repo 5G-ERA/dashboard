@@ -1,0 +1,230 @@
+﻿@{
+    ViewData["Title"] = "Home > EGTN - Logistics Information > Regulatory";
+}
+
+<div class="row">
+    <div class="titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+</div>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true">Customs</button>
+  </li>
+
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false">Authorities</button>
+  </li>
+
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#tab3" type="button" role="tab" aria-controls="tab3" aria-selected="false">VAT Dpt</button>
+  </li>
+  
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#tab4" type="button" role="tab" aria-controls="tab3" aria-selected="false">Excise Duties</button>
+  </li>
+  
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#tab5" type="button" role="tab" aria-controls="tab3" aria-selected="false">Sample Category 3</button>
+  </li>
+
+</ul>
+
+@*tab contents*@
+<div class="tab-content" id="myTabContent">
+
+    @*tab1*@
+  <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="home-tab">
+
+    
+            <div class="row">
+                
+                
+                <div class="col-md-4 col-xs-12 pdfFiles-section">
+                    <div class="col-12 row" id="filesDropdownCotainer">
+                
+                    </div>
+
+                    <input type="text" class="defaultInput" name="Search" placeholder="Search..." maxlength="250" value="" >
+        
+                    <div class="pdfFiles-container">
+            
+                        <div class="pdfFiles" >
+                            <div class="pdfFilesInfo" onclick="selectPDFFile('EGTNL-regulatory//CELEX_32010R0913_EN_TXT_Rail network freight.pdf')">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                CELEX_32010R0913_EN_TXT_Rail network freigh
+                                @*<div class="top-bot-info">
+                                    <span>File Name</span>
+                                    <p>Author</p>
+                                </div>*@
+                            </div>
+                
+                            <div class="pdfFilesInfo-end">
+                               @* <div><i class="fa-solid fa-caret-down"></i></div>
+                                <div>01/01/2001</div>*@
+                            </div>
+
+                        </div>
+            
+                        @*<div class="pdfFiles">
+                            <div class="pdfFilesInfo"  onclick="selectPDFFile('EGTNL-regulatory//EU Excise Duties directive 2019.pdf')">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                EU Excise Duties directive 2019
+                            </div>
+                
+                            <div class="pdfFilesInfo-end">
+                                <div><i class="fa-solid fa-caret-down"></i></div>
+                                <div>01/01/2001</div>
+                            </div>
+
+                        </div>*@
+                        
+                        @*<div class="pdfFiles">
+                            <div class="pdfFilesInfo"  onclick="selectPDFFile('EGTNL-regulatory//Equipment for perishable foodstuff_ATP-2016e_-def-web.pdf')">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                Equipment for perishable foodstuff_ATP-2016e_-def-web
+                            </div>
+                
+                            <div class="pdfFilesInfo-end">
+                                @*<div><i class="fa-solid fa-caret-down"></i></div>
+                                <div>01/01/2001</div>
+                            </div>
+
+                        </div>*@
+
+                        
+                       @*<div class="pdfFiles">
+                            <div class="pdfFilesInfo"  onclick="selectPDFFile('EGTNL-regulatory//CELEX_32010R0913_EN_TXT_Rail network freight.pdf')">
+                                <i class="fa-solid fa-file-excel"></i>
+                                CELEX_32010R0913_EN_TXT_Rail network freight
+                            </div>
+                
+                            <div class="pdfFilesInfo-end">
+                                @*<div><i class="fa-solid fa-caret-down"></i></div>
+                                <div>01/01/2001</div>
+                            </div>
+                        </div>*@
+
+                        
+                        @*<div class="pdfFiles">
+                            <div class="pdfFilesInfo"  onclick="selectExcelFile('sample4.xlsx')">
+                                <i class="fa-solid fa-file-excel"></i>
+                                Sample4
+                            </div>
+                
+                            <div class="pdfFilesInfo-end">
+                                <div><i class="fa-solid fa-caret-down"></i></div>
+                                <div>01/01/2001</div>
+                            </div>
+                        </div>*@
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-8 col-xs-12 pdfViewer-section" id="pdf-render">
+                    <embed id="embedPDF" src="~/eu_projects/planet/assets/EGTNL-regulatory/CELEX_32010R0913_EN_TXT_Rail network freight.pdf" width="100%" height="100%"/>
+                </div>
+    
+                <div class="col-md-8 col-xs-12 pdfViewer-section" id="excel-render" style="display:none">
+
+                </div>
+            </div>     
+
+   </div>
+
+
+      @*tab2*@
+<div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="profile-tab">
+    
+<div class="row">
+                
+                
+<div class="col-md-4 col-xs-12 pdfFiles-section">
+    <div class="col-12 row" id="filesDropdownCotainer">
+                
+    </div>
+
+    <input type="text" class="defaultInput" name="Search" placeholder="Search..." maxlength="250" value="" >
+        
+    <div class="pdfFiles-container">
+            
+        <div class="pdfFiles" >
+            <div class="pdfFilesInfo" onclick="selectPDFFile('EGTNL-regulatory//International Rail Freight Conditions_ SMGS_1.07.2020_EN.pdf')">
+                <i class="fa-solid fa-file-pdf"></i>
+                International Rail Freight Conditions_ SMGS_1.07.2020_EN
+                @*<div class="top-bot-info">
+                                    <span>File Name</span>
+                                    <p>Author</p>
+                                </div>*@
+            </div>
+                
+            <div class="pdfFilesInfo-end">
+                @* <div><i class="fa-solid fa-caret-down"></i></div>
+                                <div>01/01/2001</div>*@
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+
+        <div class="col-md-8 col-xs-12 pdfViewer-section" id="pdf-render">
+            <embed id="embedPDF" src="~/eu_projects/planet/assets/EGTNL-regulatory/International Rail Freight Conditions_ SMGS_1.07.2020_EN.pdf" width="100%" height="100%"/>
+        </div>
+        
+        <div class="col-md-8 col-xs-12 pdfViewer-section" id="excel-render" style="display:none">
+
+        </div>
+</div>
+
+</div>
+
+      @*tab3*@
+    <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="contact-tab">...</div>
+    
+    @*tab4*@
+    <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="row">
+                
+                
+                <div class="col-md-4 col-xs-12 pdfFiles-section">
+                    <div class="col-12 row" id="filesDropdownCotainer">
+                
+                    </div>
+
+                    <input type="text" class="defaultInput" name="Search" placeholder="Search..." maxlength="250" value="" >
+        
+                    <div class="pdfFiles-container">
+            
+                        <div class="pdfFiles" >
+                            <div class="pdfFilesInfo" onclick="selectPDFFile('EGTNL-regulatory//EU Excise Duties directive 2019.pdf')">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                EU Excise Duties directive 2019
+                            </div>
+                
+                            <div class="pdfFilesInfo-end">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-8 col-xs-12 pdfViewer-section" id="pdf-render">
+                    <embed id="embedPDF" src="~/eu_projects/planet/assets/EGTNL-regulatory/EU Excise Duties directive 2019.pdf" width="100%" height="100%"/>
+                </div>
+    
+                <div class="col-md-8 col-xs-12 pdfViewer-section" id="excel-render" style="display:none">
+
+                </div>
+            </div>     
+    </div>
+
+</div>
+
+
+

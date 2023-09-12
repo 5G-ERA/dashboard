@@ -1,0 +1,191 @@
+﻿@{
+    ViewData["Title"] = "Mandrekas UseCase";
+
+}
+
+<script src="~/eu_projects/astep/js/DataManagement.js" asp-append-version="true"></script>
+<script src="~/eu_projects/astep/js/AstepHelper.js" asp-append-version="true"></script>
+<script src="~/eu_projects/astep/js/DropdownsHandlers.js" asp-append-version="true"></script>
+<script src="~/eu_projects/astep/js/TablesInfoHandler.js" asp-append-version="true"></script>
+<script src="~/eu_projects/astep/js/AstepGraphs.js" asp-append-version="true"></script>
+<script src="~/eu_projects/astep/js/MandrekasMenu.js" asp-append-version="true"></script>
+
+<div class="row">
+    <div class="col-12 titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+</div>
+<div class="usdescript-date">
+    <div class="row ucdescriptionchosen">
+        <div class="col-md-2 col-sm-12">
+            <label for="ucdescription">Select dataset</label>
+        </div>
+        <div class="col-md-9 col-sm-10">
+            <select name="ucdesc" id="ucdesc_id">
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <hr style="width:100%;text-align:center;margin-left:0">
+        </div>
+    </div>
+    <div class="generalinfoclass">
+        <div class="row">
+            <div class="row">
+                
+                <div class="col-sm-12 col-md-6">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12">
+                            Responsible
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_responsible_id" readonly>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            Contact
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_contact_id" readonly>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            Date
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="date" id="uc_date_id" readonly>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="errormessageusecase col-12">
+            </div>
+            
+            <div class="container-fluid" style="margin-top: 3%;">
+                <div id="treshold_bloc_title"></div>
+                <div id="uc_threshold_config" class="row">
+                    <div id="uc_threshold_config_left_block" class="col-md-12 col-lg-6"></div>
+                    <div id="uc_threshold_config_right_block" class="col-md-12 col-lg-6"></div>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+</div> @*end of general info div*@
+@*test datatable*@
+<div class="experimentresults_data_area">
+    @*<div class="addbtn">
+        <button type="button" class="btn btn-primary">Add New Experiment</button>
+    </div>*@
+    <table class="experimentresultsevaluation_table" id="experimentresultsevaluation_table">
+    </table>
+</div>
+@* test result avg*@
+<div class="col-md-12 ColumnTestResult-bottomContainer-main" style="margin-top:10px"></div>
+
+<div class="chart">
+<div class="row">
+        <div class="col-xl-12 stretch-card grid-margin">
+        @* test result line-chart*@
+            <div class="card">
+                <div class="card-body">
+        <div class="col-md-12 experimentresults_data_area" id="line_charts">
+            <div id="scenario_line_chart" class="line_charts_cst" style="height:400px; width:100%;"></div>
+        </div>
+    </div>
+            </div>
+        </div>
+</div>
+</div>
+
+@*END OF Test Results*@
+<div class="experiment_graph">
+    @*<div class="row">
+        <div class="col-xl-12 stretch-card grid-margin">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="graph1">
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            *<div class="graph2">
+                            </div>*
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="graph2">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="graph3">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+*@
+    @*<div class="row">
+        <div class="col-xl-3 stretch-card grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <div class="graph4">
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-9 stretch-card grid-margin">
+            <div class="card">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="graph5">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="graph6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+</div>
+
+<div class="homemodal">
+    <div class="modal fade" id="astepmodal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+﻿@model eu_projects_main_platform.Models._5gera.EditCloud
+<br/>
+<h4>Edit Cloud</h4>
+<hr />
+<br/>
+<div class="container">
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditCloud">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="id" class="control-label"></label>
+                <input asp-for="id" class="form-control" />
+                <span asp-validation-for="id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cloudStatus" class="control-label"></label>
+                <input asp-for="cloudStatus" class="form-control" />
+                <span asp-validation-for="cloudStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cloudIp" class="control-label"></label>
+                <input asp-for="cloudIp" class="form-control" />
+                <span asp-validation-for="cloudIp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="numberOfCores" class="control-label"></label>
+                <input asp-for="numberOfCores" class="form-control" />
+                <span asp-validation-for="numberOfCores" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="diskStorage" class="control-label"></label>
+                <input asp-for="diskStorage" class="form-control" />
+                <span asp-validation-for="diskStorage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cpu" class="control-label"></label>
+                <input asp-for="cpu" class="form-control" />
+                <span asp-validation-for="cpu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ram" class="control-label"></label>
+                <input asp-for="ram" class="form-control" />
+                <span asp-validation-for="ram" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="lastUpdatedTime" class="control-label"></label>
+                <input asp-for="lastUpdatedTime" class="form-control" />
+                <span asp-validation-for="lastUpdatedTime" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="isOnline" /> @Html.DisplayNameFor(model => model.isOnline)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            <div class="form-group">
+                    <button type="button" class="btn btn-dark"><a asp-controller="Home" asp-action="Index" style="color:white">Back</a></button>
+                </div>
+        </form>
+    </div>
+</div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

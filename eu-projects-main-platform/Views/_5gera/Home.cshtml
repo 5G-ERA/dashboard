@@ -1,0 +1,175 @@
+﻿@using eu_projects_main_platform.Models._5gera
+
+@model IEnumerable<RobotTasks>
+@{
+    ViewData["Title"] = "5G ERA - Home";
+
+}
+<script src="~/eu_projects/5gera/projectFiles/ERAGraphs.js"></script>
+
+<div class="row">
+    <div class="col-12 titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-9 stretch-card grid-margin">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="graph1">
+                           
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="graph2">
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="graph3">
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 stretch-card grid-margin">
+        <div class="card">
+            <div class="card-body ActionSequenceGenerationarea">
+                <div class="ActionSequenceGeneration" style="margin-bottom: 10px;border-bottom: 1px solid #345687;font-weight: bold;">Action Sequence Generation</div>
+                <div class="accordion" id="KPItables">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button accordion-button-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Action Sequence Generation 1
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#KPItables">
+                            <div class="accordion-body">
+                                <div class="row accordion-body-1">
+                                    Action Sequence Generation 1
+                                </div>  @*START OF LEFT SIDE*@
+                            </div>
+                        </div>
+                    </div>    @*Aplication KPIs*@
+                    <div class="accordion-item">
+                        Start of Service KPIs
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed accordion-button-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Action Sequence Generation 2
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#KPItables">
+                            <div class="accordion-body">
+                                <div class="row accordion-body-2">
+
+                                    Action Sequence Generation 2
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>    @*END OF Service KPIs*@
+                    <div class="accordion-item">
+                        START OF Network KPIs
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button accordion-button-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Action Sequence Generation 3
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#KPItables">
+                            <div class="accordion-body accordion-collapse-3">
+
+                                <div class="row">
+                                    Action Sequence Generation 3
+                                </div>
+                            </div>
+                        </div>
+                    </div>    @*END OF Network KPIs*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-3 stretch-card grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <div class="graph4">
+                    
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-9 stretch-card grid-margin">
+        <div class="card">
+            <div class="card-body ">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="graph5">
+                            
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="graph6">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@{
+    List<SelectListItem> selectionList = new List<SelectListItem>();
+    selectionList.Add(new SelectListItem { Text = "Robot Task", Value = "robot_task", Selected = true });
+    selectionList.Add(new SelectListItem { Text = "Cloud", Value = "cloud" });
+    selectionList.Add(new SelectListItem { Text = "Edge", Value = "edge" });
+    selectionList.Add(new SelectListItem { Text = "Action", Value = "action" });
+    selectionList.Add(new SelectListItem { Text = "Network Applications", Value = "netApps" });
+    selectionList.Add(new SelectListItem { Text = "Robots", Value = "robots" });
+    // selectionList.Add(new SelectListItem { Text = "Policy", Value = "policy" });
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            @Html.DropDownList("Select Item Type", selectionList, "Select", htmlAttributes: new {@id = "dropdown", @onchange = "javascript:dropdownList()"} )
+        </div>
+        <div class="col-md-3">
+            <p>
+                <a asp-action="OnboardModel" class="btn btn-sm btn-success ml-1">Onboard Entity</a>
+            </p>
+            @*<button id="onboardBtn" onclick="OnboardModel()">Onboard Entity</button>*@
+        </div>
+        <div class="col-md-3">
+            <p>
+                <a asp-action="GraphRelations" class="btn btn-sm btn-success ml-1">Create Relationship</a>
+            </p>
+            @*<button id="onboardBtn" onclick="OnboardModel()">Onboard Entity</button>*@
+        </div>
+    </div>
+    </div>
+<div id="robot_tasks">
+    @Html.Partial("_GridGetDataRobotTask")
+</div>
+
+
+<button id="policyBtn" onclick="showPolicy()">Policy</button>
+<div id="middleware_policy">
+
+</div>
+
+
+

@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Planet - User Alerts";
+}
+
+<div class="row">
+    <div class="titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+</div>
+
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-success me-md-2" type="button" onclick="OnMarkAllAlertsAsRead()" style="margin-right: 5px; background-color: #3D6D57"><i class="fa-solid fa-eye " style="color: white; font-size:12px"></i> Mark all as read</button>
+    @*<button id="delete_alert_btn" class="btn btn-danger isDisabled" type="button" onclick="DeleteAlertConfig()" style="margin-right: 5px;"><i class="fa-solid fa-trash" style="color:white"></i> Delete</button>*@
+</div>
+
+<div class="row">
+    <div class="col-12" id="alerts_table_container" style="margin-top: 2%;"></div>
+</div>

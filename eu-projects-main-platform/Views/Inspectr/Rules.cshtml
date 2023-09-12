@@ -1,0 +1,114 @@
+﻿@{
+    ViewData["Title"] = "Inspectr Rules";
+
+}
+<div class="col-xs-12">
+    <div class="row">
+        <div class="col-12 titlePage ruleViewTitle">
+            @ViewData["Title"]
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <a class="button col-3" id="AddRuleInspectr" onclick="AddRuleInspectr()">Add</a>
+            <a class="button col-3" id="EditRuleInspectr" onclick="EditRuleInspectr()">Edit</a>
+            @*<a class="button col-3" id="DuplicateRuleInspectr" onclick="EditRuleInspectr()">Duplicate</a>*@
+            <a class="button col-3" id="DeleteRuleInspectr" onclick="DeleteRuleInspectr()">Delete</a>
+            @*<a class="button col-3" id="ImportRuleInspectr" onclick="ImportRuleInspectr()">Import</a>*@
+        </div>
+    </div>
+
+
+    <div class="col-xl-12 stretch-card grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <div id="InspectrtableDiv" class="table-responsive col-12">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*Modal*@
+<div class="modal" value="0" id="InspectrModal" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="InspectrModalLongTitle">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="InspectrModalLongTitle">Rule</h4>
+                <button id="Inspectclose" type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="CloseModalInspectrModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 Modal_Header_Inspectr">
+                            <label for="ruleName" class="col-4 rulename">Rule Name:</label>
+                            <input type="text" class="col-6 ruleinput_name" id="ruleName" placeholder="Insert Rule Name" name="ruleName" required />
+                        </div>
+                        <div class="col-12 Requestor_Box_Inspectr RuleModalBox">
+                            <div class="col-3 Requestor_Label_inspectr LabelModalBox">
+                                <label for="Requestor" class="col-4">Requestor:</label>
+                            </div>
+                            <div class="col-12 countryarea">
+                            </div>
+                            <div class="col-12 requestormember">
+                            </div>
+                        </div>
+                        <div class="col-12 Request_Box_Inspectr RuleModalBox">
+                            <div class="col-3 Request_Label_inspectr LabelModalBox">
+                                <label for="Request" class="col-4">Request:</label>
+                            </div>
+                            <div class="col-12 requesttype">
+                            </div>
+                            <div class="col-12 requestjurisdiction">
+                            </div>
+                        </div>
+                        <div class="col-12 Crime_Box_Inspectr RuleModalBox">
+                            <div class="col-3 Crime_Label_inspectr LabelModalBox">
+                                <label for="Crime" class="col-4">Crime:</label>
+                            </div>
+                            <div class="col-12 CrimeType">
+                            </div>
+                            <div class="col-12 CrimeCountry">
+                            </div>
+                            <div class="col-12 CrimeLevel">
+                            </div>
+                            <div class="col-12 CrimeCase">
+                            </div>
+                        </div>
+                        <div class="col-12 Evidence_Box_Inspectr RuleModalBox">
+                            <div class="col-3 Evidence_Label_inspectr LabelModalBox">
+                                <label for="Evidence" class="col-4">Evidence:</label>
+                            </div>
+                            <div class="col-12 EvidenceSource">
+                            </div>
+                            <div class="col-12 EvidenceType">
+                            </div>
+                        </div>
+                        <div class="col-12 ">
+                            <label for="Priority" class="col-4">Priority:</label>
+                          
+                            <div class="col-12 Priority">
+                                <input type="range" id="Priority" value="" class="js-range-slider" />
+                            </div>
+                            <label for="Status" class="col-4">Status:</label>
+                            <div class="col-12 Status">
+                            </div>
+                            <label for="Response" class="col-4">Response:</label>
+                            <div class="col-12 Response">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <div class="modal-footer">
+                <button type="button" id="Save_Rule" class="btn btn-primary" onclick="Save_Rule()">Save</button>            
+                <button type="button" id="Edit_Rule" class="btn btn-primary" onclick="Edit_RuleModal()">Edit</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="CloseModalInspectrModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+</div>

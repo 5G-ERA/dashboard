@@ -1,0 +1,56 @@
+﻿@model eu_projects_main_platform.Models._5gera.Datum
+
+@{
+    ViewData["Title"] = "AddCloud";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>AddCloud</h1>
+
+<h4>Datum</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddCloud">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="lastUpdatedTime" class="control-label"></label>
+                <input asp-for="lastUpdatedTime" class="form-control" />
+                <span asp-validation-for="lastUpdatedTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="isOnline" /> @Html.DisplayNameFor(model => model.isOnline)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="isBusy" /> @Html.DisplayNameFor(model => model.isBusy)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="numberOfRunningContainers" class="control-label"></label>
+                <input asp-for="numberOfRunningContainers" class="form-control" />
+                <span asp-validation-for="numberOfRunningContainers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="status" class="control-label"></label>
+                <input asp-for="status" class="form-control" />
+                <span asp-validation-for="status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

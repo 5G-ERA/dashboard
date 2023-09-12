@@ -1,0 +1,36 @@
+{
+  "Schedule1": [
+    {
+      "Origin station": "Valencia Port / Madrid Dry port",
+      "Destination station ": "Madrid Dry Port / Valencia Port ",
+      "Distance ": "355 Km",
+      "Departure per day": "3 train / day*",
+      "Departure per week": "Monday - Friday",
+      "Transit time": "8 hours"
+    }
+  ],
+  "Schedule2": [
+    {
+      "Origin station": "Valencia Port / Madrid Dry port",
+      "Destination station ": "Madrid Dry Port / Valencia Port ",
+      "Departure per day": "1 train",
+      "Departure per week": "Monday - Friday",
+      "Transit time": "8 hours"
+    },
+    {
+      "Origin station": "Valencia Port",
+      "Destination station ": "Zaragoza Rail Terminal",
+      "Departure per day": "1 train",
+      "Departure per week": "Monday/Wednesday/Friday",
+      "Transit time": "8 hours"
+    },
+    {
+      "Origin station": "Zaragoza Rail Terminal",
+      "Destination station ": "Valencia Port ",
+      "Departure per day": "1 train",
+      "Departure per week": "Tuesday/Thursday/Saturday",
+      "Transit time": "8 hours"
+    }
+  ],
+  "Notice": "* We don't have specific slots assigned in each train, this means that transport department needs to check slot availability with rail operators when a transport request is received. For more details please check the draft version of D3.1. "
+}

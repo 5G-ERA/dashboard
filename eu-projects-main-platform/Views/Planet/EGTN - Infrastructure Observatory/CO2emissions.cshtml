@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Home > EGTN - Infrastructure Observatory > CO2 Emissions";
+}
+
+<div class="row">
+    <div class="titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+</div>  
+
+
+
+
+
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="tab1" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true">Corridor</button>
+  </li>
+  
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="tab2" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false">Node</button>
+  </li>
+  
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="tab3" data-bs-toggle="tab" data-bs-target="#tab3" type="button" role="tab" aria-controls="tab3" aria-selected="false">Route</button>
+  </li>
+
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="tab4" data-bs-toggle="tab" data-bs-target="#tab4" type="button" role="tab" aria-controls="tab3" aria-selected="false">Consignment</button>
+  </li>
+
+
+  
+</ul>
+
+@*tab contents*@
+<div class="tab-content" id="myTabContent">
+
+    @*tab1*@
+  <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1" style="margin-top:0px">
+
+
+        @*table*@
+        <div class="row CO2_emissionsTablearea" style="display:none;">
+            <div class="col-xl-12 stretch-card grid-margin">
+                <div class="card">
+                    <div class="row advancedSearchContainer" id="advancedSearchContainer-CO2-emissions-corridor-Table" style="display:none">
+
+                        </div>
+
+                    <div class="card-body row">
+                        
+                        @*table-content*@
+                        <div class="table-responsive col-12">
+                            <table id="CO2-emissions-corridor-Table">
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+
+   </div>
+
+</div>

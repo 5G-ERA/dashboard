@@ -1,0 +1,207 @@
+﻿@{
+    ViewData["Title"] = "Home > EGTN - Infrastructure Observatory > Node";
+}
+<link href="https://cdn.syncfusion.com/ej2/fabric.css" asp-append-version="true" rel="stylesheet">
+
+<div class="row header-section">
+    <div class="titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+
+    <div id="gird-settings">
+    </div>
+</div>
+
+
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true">Warehouse</button>
+    </li>
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="second-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="true">Dry Port</button>
+    </li>
+    
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="third-tab" data-bs-toggle="tab" data-bs-target="#tab3" type="button" role="tab" aria-controls="tab3" aria-selected="true">Rail Facility Portal</button>
+    </li>
+</ul>
+
+@*tab contents*@
+<div class="tab-content" id="myTabContent">
+
+    @*tab1*@
+    <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="home-tab" style="margin-top:0px">
+
+
+
+        @*table*@
+        <div id="warehousTable">
+            <div class="row NodeTablearea" style="display:none;">
+                <div class="col-xl-12 stretch-card grid-margin">
+
+                    <div class="card">
+                        <span class="handle"><i class="fa-solid fa-arrows-up-down-left-right"></i></span>
+
+                        <div class="row advancedSearchContainer" id="advancedSearchContainer-Node-Table" style="display:none"> </div>
+
+                        <div class="card-body row">
+
+                            @*table-content*@
+                            <div class="table-responsive col-12">
+                                <table id="Node-Table">
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        @*<div id="ContainerGraph" class="row" style="display:none">*@
+        <div id="ContainerGraph" class="row">
+
+
+
+
+
+            <div class="col-xl-4" id="pie1Grid">
+                <div class="col-xl-12 stretch-card grid-margin Charts" style="display:none">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="row">
+                                <span class="handle2"><i class="fa-solid fa-arrows-up-down-left-right"></i></span>
+
+                                <label style="text-align:center;"> Pallet Capacity </label>
+                                <div class="pie1GraphArea col-12">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xl-4" id="pie2Grid">
+                <div class="col-xl-12 stretch-card grid-margin Charts" style="display:none">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <span class="handle2"><i class="fa-solid fa-arrows-up-down-left-right"></i></span>
+
+                                <label style="text-align:center;"> Free storage Level</label>
+                                <div class="pie2GraphArea col-12">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-4" id="pie3Grid">
+                <div class="col-xl-12 stretch-card grid-margin Charts" style="display:none">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <span class="handle2"><i class="fa-solid fa-arrows-up-down-left-right"></i></span>
+
+                                <label style="text-align:center;"> Free storage Picking Zone</label>
+                                <div class="pie3GraphArea col-12">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xl-4" id="barCol1Grid">
+                <div class="col-xl-12 stretch-card grid-margin Charts" style="display:none">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <span class="handle2"><i class="fa-solid fa-arrows-up-down-left-right"></i></span>
+
+                                <label style="text-align:center;">  Pallet Capacity </label>
+                                <div class="barCol1GraphArea col-12">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xl-4" id="barCol2Grid">
+                <div class="col-xl-12 stretch-card grid-margin Charts" style="display:none">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <span class="handle2"><i class="fa-solid fa-arrows-up-down-left-right"></i></span>
+
+                                <label style="text-align:center;"> Free storage Level</label>
+                                <div class="barCol2GraphArea col-12">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4" id="barCol3Grid">
+                <div class="col-xl-12 stretch-card grid-margin Charts" style="display:none">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <span class="handle2"><i class="fa-solid fa-arrows-up-down-left-right"></i></span>
+
+                                <label style="text-align:center;"> Free storage Picking Zone</label>
+                                <div class="barCol3GraphArea col-12">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+
+    @*tab2*@
+    <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="second-tab" style="margin-top: 0px">
+        <div class="row">
+            <div class="col-12">
+                <div id="T1VESSEL_TaxTable"></div>
+            </div>
+        </div>
+    </div>
+    
+    @*tab2*@
+    <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="third-tab" style="margin-top: 0px">
+        <div class="row">
+            <div class="col-12">
+                <iframe src="https://railfacilitiesportal.eu/" style="height: 700px;width: 100%"></iframe>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    var sortable = Sortable.create(document.getElementById('ContainerGraph'), {
+        handle: ".handle2"
+    })
+    var sortable2 = Sortable.create(document.getElementById('tab1'), {
+        handle: ".handle"
+    })
+</script>

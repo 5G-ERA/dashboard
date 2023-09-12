@@ -1,0 +1,94 @@
+﻿@using eu_projects_main_platform.Models._5gera
+
+@model IEnumerable<RobotTasks>
+
+@inject IHttpClientFactory _clientFactory
+
+@{
+    ViewData["Title"] = "Robot Task";
+}
+<div>
+    <h3>@ViewData["Title"]</h3>
+    @*<p>
+        <a href="#" class="btn btn-primary" onclick="AddEditEmployee(0)">New</a>
+        <a href="#" class="btn btn-sm btn-success ml-1" onclick="AddRobotTask('')">Create</a>
+    </p>*@
+</div>
+<table class="table" id="robot-tasks">
+    <thead>
+        <tr>
+            <th>
+                Task Name
+            </th>
+            
+            <th>
+                Robot Name
+            </th>
+            <th>
+                Robot Status
+            </th>
+            <th>
+                Task start time
+            </th>
+            <th>
+                Task completed time
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.taskName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.robotName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.robotStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.taskStartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.taskCompletedTime)
+                </td>
+                <td>
+                    <a asp-action="EditRobotTask" asp-route-id="@item.taskId" class="btn btn-sm btn-info">Edit</a> |
+                    <a asp-action="DeleteRobotTask" asp-route-id="@item.taskId" class="btn btn-sm btn-danger ml-1">Delete</a>
+                </td>
+
+                @*<td>
+            <a asp-action="ManageCustomerEdit" asp-route-id="@item.CustomerNo" class="btn btn-sm btn-info">Edit</a> |
+            <a asp-action="ManageCustomerDetails" asp-route-id="@item.CustomerNo" class="btn btn-sm btn-primary ml-1">Details</a> |
+            <a asp-action="ManageCustomerDelete" asp-route-id="@item.CustomerNo" class="btn btn-sm btn-danger ml-1">Delete</a>
+            </td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+@*<div class="modal" id="myModal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+                <h3 class="modal-title">Add Robot Task</h3>
+            </div>
+            <div class="modal-body" id="myModalBodyDiv1">
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+*@
+<script>
+    $(document).ready( function() {
+        $('#robot-tasks').DataTable();
+    })
+</script>
+

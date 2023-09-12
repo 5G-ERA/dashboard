@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "Inspectr Requests";
+}
+<script src="~/eu_projects/inspectr/projectFiles/DatatableRowGroupPlugin.js" asp-append-version="true"></script>
+<script src="~/eu_projects/inspectr/projectFiles/InspectRequestTableHandler.js" asp-append-version="true"></script>
+<script src="~/eu_projects/inspectr/projectFiles/QueryBuilderFilterSetting.js" asp-append-version="true"></script>
+
+
+<div class="row">
+    <div class="col-12 titlePage ruleViewTitle">
+        @ViewData["Title"]
+    </div>
+</div>
+<div class="row">
+    @*<div class="col-6">
+        <button class="btn btn-dark" id="AddRuleInspectr" onclick="AddorEditInspectRule('add')">Add</button>
+        <button class="btn btn-dark isDisabled"  id="EditRuleInspectr" onclick="AddorEditInspectRule('edit')">Edit</button>
+        <button class="btn btn-dark isDisabled"  id="DeleteRuleInspectr" onclick="DeleteInspectRule()">Delete</button>
+        <button class="btn btn-dark isDisabled"  id="DuplicateRuleInspectr" onclick="DuplicateInspectRule()">Duplicate</button>
+    </div>*@
+    <div class="col-12" style="text-align:end">
+        <button class="btn btn-outline-dark"  id="ExpandAllRows">Expand All</button>
+        <button class="btn btn-outline-dark"  id="CollapseAllRows">Collapse All</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12" id="requests_table_container" style="margin-top: 2%;"></div>
+</div>
+
+<div class="homemodal">
+        <div class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Some text in the modal.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,175 @@
+﻿@{
+    ViewData["Title"] = "Experiment Results Evaluation";
+}
+<script src="~/eu_projects/5groutes/projectFiles/ExperimentResults.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/VisualiseKPIs.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/5groutesHelper.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/DataManagement.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/DropdownsHandlers.js" asp-append-version="true"></script>
+<script src="~/eu_projects/5groutes/projectFiles/TablesInfoHandler.js" asp-append-version="true"></script>
+<div class="row">
+    <div class="col-12 titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+</div>
+<div class="usdescript-date">
+    <div class="row ucdescriptionchosen">
+        <div class="col-md-2 col-sm-12">
+            <label for="ucdescription">UC Description</label>
+
+
+        </div>
+        <div class="col-md-9 col-sm-10">
+            <select name="ucdesc" id="ucdesc_id">
+            </select>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <hr style="width:100%;text-align:center;margin-left:0">
+        </div>
+    </div>
+
+
+
+
+    <div class="generalinfoclass">
+
+        <div class="row">
+
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12">
+                            Use Case ID
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_id" readonly style="display: none">
+                            <input type="text" id="uc_id_string" readonly>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            Use Case Description
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_description_id" readonly>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            Category
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_category" readonly>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-sm-12 col-md-6">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12">
+                            Responsible
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_responsible_id" readonly>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            Contact
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="text" id="uc_contact_id" readonly>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12">
+                            Date
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <input type="date" id="uc_date_id" readonly>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="errormessageusecase col-12">
+        </div>
+    </div>
+</div> @*end of general info div*@
+
+<div class="scenarioarea">
+
+    <div class="row scenariodescriptionchosen">
+        <div class="col-sm-2">
+            <label>Scenario Description</label>
+        </div>
+        <div class="col-sm-9">
+            <select name="cars" id="scenariodesc_id" disabled data-placeholder="Please choose UC Description First">
+            </select>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="scenarioarea experimentresults_dropdown_area">
+
+    <div class="row experimentresultsevaluationchosen">
+        <div class="col-sm-2">
+            <label>Experiment Results</label>
+        </div>
+        <div class="col-sm-9">
+            <select name="ExperimentResults" id="experimentresults_dropdown_id" disabled data-placeholder="Please choose Scenario First">
+            </select>
+        </div>
+    </div>
+
+
+
+</div>
+
+@*<div class="scenarioarea experimentresults_data_area">*@
+<div class="experimentresults_data_area">
+    <div class="col-sm-12 table_class">
+        <div class="tablemain2">
+
+            <div class="experimentresultsevaluation_table">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="homemodal">
+    <div class="modal fade" id="5groutesmodal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

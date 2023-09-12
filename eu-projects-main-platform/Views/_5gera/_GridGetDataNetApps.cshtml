@@ -1,0 +1,61 @@
+﻿@using eu_projects_main_platform.Models._5gera
+
+@model IEnumerable<EditNetApp>
+
+@{
+    ViewData["Title"] = "NetApps";
+}
+<table class="table" id="netApps">
+    <thead>
+        <tr>
+            <th>
+                netApp Name
+            </th>
+            <th>
+                netApp family
+            </th>
+            <th>
+                ROS version
+            </th>
+            <th>
+                ROS distro
+            </th>
+            <th>
+                Date Onboarded
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.instanceFamily)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rosVersion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rosDistro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.onboardedTime.Date)
+                </td>
+                <td>
+                    <a asp-action="EditNetApp" asp-route-id="@item.id" class="btn btn-sm btn-info">Edit</a> |
+                    <a asp-action="DeleteNetApp" asp-route-id="@item.id" class="btn btn-sm btn-danger ml-1">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        $('#netApps').DataTable();
+    })
+</script>
+

@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Home >  Physical Internet Services > DSS: Last Mile";
+}
+
+<div class="row header-section">
+    <div class="titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+
+    <div id="gird-settings">
+    </div>
+</div>
+
+
+
+<div class="col-xl-12 stretch-card grid-margin">
+    <div class="card">
+        <div class="card-body row" id="grids-container">
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 map-container" id="routeMap" style="min-height:600px">
+
+                <span class="handle" style="float:right"><i class="fa-solid fa-arrows-up-down-left-right"></i></span>
+                <div class="map-sample" id="map"> </div>
+
+            </div>
+
+            <div class="table-responsive col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 smallTable" id="table2Grid" style="min-height:600px">
+                <span class="handle" style="float:right"><i class="fa-solid fa-arrows-up-down-left-right"></i></span>
+
+                <table id="DSS_lastmile_t2">
+                </table>
+
+            </div>
+
+
+            <div id="table1Grid" class="col-12">
+                <span class="handle" style="float:right"><i class="fa-solid fa-arrows-up-down-left-right"></i></span>
+                <div class="col-12 row" id="query-container">
+
+                    <div class="col-3" style="align-self:center">Select a Date</div>
+                    <div class="col-6">
+                        <select id="dss_date_selector" style="width: 100%">
+                            <option selected="true" value="0"><time>2021-08-17 </time></option>
+                            <option value="1"><time>2021-07-15 </time></option>
+                        </select>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12"> <label class="main-btn" onclick="DisplaySelectedMileDateInfos()"> Submit </label> </div>
+                </div>
+
+                @*table-content*@
+                <div class="table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" style="overflow-x:hidden">
+                    <table id="DSS_lastmile_t1">
+                    </table>
+
+                    <br />
+
+                    <hr style="width:100%; border:#47a58d  solid 1px; margin-bottom:15px" />
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<script src="~/eu_projects/planet/tomtomMap.js" asp-append-version="true"></script>
+
+<script>
+    var sortable = Sortable.create(document.getElementById('grids-container'), {
+        handle: ".handle"
+    })
+
+</script>

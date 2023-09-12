@@ -1,0 +1,83 @@
+﻿@using eu_projects_main_platform.Models._5gera
+
+@model IEnumerable<ActivePolicy>
+
+@{
+    ViewData["Title"] = "Middleware Policy";
+}
+<div>
+    <h3>@ViewData["Title"]</h3>
+    <p>
+        @*<a href="#" class="btn btn-primary" onclick="AddEditEmployee(0)">New</a>*@
+        <a href="#" class="btn btn-sm btn-success ml-1" onclick="AddEditPolicy('')">Create</a>
+    </p>
+</div>
+<table class="table" id="policy">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Policy type
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Active
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isActive)
+                </td>
+                <td>
+                    @*<button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-target="editPolicy" data-url="@Url.Action($"Edit/{item.id}")">Edit</button>*@
+                    @*<a href="#" class="btn btn-sm btn-info" onclick="AddEditPolicy(@item.id)">Edit</a>*@
+                    <a asp-action="MiddlewarePolicyDetails" asp-route-id="@item.id" class="btn btn-sm btn-info ml-1">Edit</a> |
+                    <a asp-action="MiddlewarePolicyDelete" asp-route-id="@item.id" class="btn btn-sm btn-danger ml-1">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="modal fade" id="myModal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" class="close" data-bs-dismiss="modal">&times;</a>
+                @*<h3 class="modal-title">Middleware Policy</h3>*@
+            </div>
+            <div class="modal-body" id="myModalBodyDiv1">
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<input type="hidden" id="hiddenPolicyId" />
+<script>
+    $(document).ready( function() {
+        $('#policy').DataTable();
+        
+    })
+    </script>

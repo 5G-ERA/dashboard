@@ -1,0 +1,167 @@
+﻿@{
+    ViewData["Title"] = "Home > EGTN - Logistics Information > Governance";
+}
+
+<div class="row">
+    <div class="titlepage headtitle">
+        @ViewData["Title"]
+    </div>
+</div>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true">data management policies</button>
+  </li>
+
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false">Security policies</button>
+  </li>
+
+</ul>
+
+@*tab contents*@
+<div class="tab-content" id="myTabContent">
+
+    @*tab1*@
+  <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="home-tab">
+
+    
+            <div class="row">
+                
+                
+                <div class="col-md-4 col-xs-12 pdfFiles-section">
+                    <div class="col-12 row" id="filesDropdownCotainer">
+                
+                    </div>
+
+                    <input type="text" class="defaultInput" name="Search" placeholder="Search..." maxlength="250" value="" >
+        
+                    <div class="pdfFiles-container">
+             
+                        <div class="pdfFiles" >
+                            <div class="pdfFilesInfo" onclick="selectPDFFile('EGTNL-regulatory//TransEuropean transport network requirements_DOC_1-PART A.pdf')">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                TransEuropean transport network requirements_DOC-PART A
+                                @*<div class="top-bot-info">
+                                    <span>File Name</span>
+                                    <p>Author</p>
+                                </div>*@
+                            </div>
+                
+                            <div class="pdfFilesInfo-end">
+                                @*<div><i class="fa-solid fa-caret-down"></i></div>
+                                <div>01/01/2001</div>*@
+                            </div>
+
+                        </div>
+                        <div class="pdfFiles" >
+                            <div class="pdfFilesInfo" onclick="selectPDFFile('EGTNL-regulatory//TransEuropean transport network requirements_DOC_1-PART B-1-5.pdf')">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                TransEuropean transport network requirements_DOC-PART B <sub>1</sub>
+                                @*<div class="top-bot-info">
+                                    <span>File Name</span>
+                                    <p>Author</p>
+                                </div>*@
+                            </div>
+                
+                            <div class="pdfFilesInfo-end">
+                                @*<div><i class="fa-solid fa-caret-down"></i></div>
+                                <div>01/01/2001</div>*@
+                            </div>
+
+                        </div>
+                        <div class="pdfFiles" >
+                            <div class="pdfFilesInfo" onclick="selectPDFFile('EGTNL-regulatory//TransEuropean transport network requirements_DOC_1-PART B-6-10.pdf')">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                TransEuropean transport network requirements_DOC-PART B <sub>2</sub>
+                                @*<div class="top-bot-info">
+                                    <span>File Name</span>
+                                    <p>Author</p>
+                                </div>*@
+                            </div>
+                
+                            <div class="pdfFilesInfo-end">
+                                @*<div><i class="fa-solid fa-caret-down"></i></div>
+                                <div>01/01/2001</div>*@
+                            </div>
+
+                        </div>
+                        <div class="pdfFiles" >
+                            <div class="pdfFilesInfo" onclick="selectPDFFile('EGTNL-regulatory//TransEuropean transport network requirements_DOC_1-PART B-11-15.pdf')">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                TransEuropean transport network requirements_DOC-PART B <sub>3</sub>
+                                @*<div class="top-bot-info">
+                                    <span>File Name</span>
+                                    <p>Author</p>
+                                </div>*@
+                            </div>
+                
+                            <div class="pdfFilesInfo-end">
+                                @*<div><i class="fa-solid fa-caret-down"></i></div>
+                                <div>01/01/2001</div>*@
+                            </div>
+
+                        </div>
+                        <div class="pdfFiles" >
+                            <div class="pdfFilesInfo" onclick="selectPDFFile('EGTNL-regulatory//TransEuropean transport network requirements_DOC_1-PART B-16-20.pdf')">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                TransEuropean transport network requirements_DOC-PART B <sub>4</sub>
+                                @*<div class="top-bot-info">
+                                    <span>File Name</span>
+                                    <p>Author</p>
+                                </div>*@
+                            </div>
+                
+                            <div class="pdfFilesInfo-end">
+                                @*<div><i class="fa-solid fa-caret-down"></i></div>
+                                <div>01/01/2001</div>*@
+                            </div>
+
+                        </div>
+
+                        <div class="pdfFiles" >
+                            <div class="pdfFilesInfo" onclick="selectPDFFile('EGTNL-regulatory//TransEuropean transport network requirements_DOC_1-PART B-21-25.pdf')">
+                                <i class="fa-solid fa-file-pdf"></i>
+                                TransEuropean transport network requirements_DOC-PART B <sub>5</sub>
+                                @*<div class="top-bot-info">
+                                    <span>File Name</span>
+                                    <p>Author</p>
+                                </div>*@
+                            </div>
+                
+                            <div class="pdfFilesInfo-end">
+                                @*<div><i class="fa-solid fa-caret-down"></i></div>
+                                <div>01/01/2001</div>*@
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-8 col-xs-12 pdfViewer-section" id="pdf-render">
+                    <embed id="embedPDF" src="~/eu_projects/planet/assets/EGTNL-regulatory/TransEuropean transport network requirements_DOC_1-PART A.pdf" width="100%" height="100%"/>
+                </div>
+    
+                <div class="col-md-8 col-xs-12 pdfViewer-section" id="excel-render" style="display:none">
+
+                </div>
+            </div>     
+
+   </div>
+
+
+      @*tab2*@
+  <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="profile-tab">
+
+  </div>
+
+      @*tab3*@
+  <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="contact-tab">...</div>
+
+</div>
+
+
+

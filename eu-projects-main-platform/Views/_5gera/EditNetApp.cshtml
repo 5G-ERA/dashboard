@@ -1,0 +1,106 @@
+﻿@model eu_projects_main_platform.Models._5gera.EditNetApp
+
+@{
+    ViewData["Title"] = "EditNetApp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br/>
+<h4>Edit NetApp</h4>
+<hr />
+<br />
+<div class="container">
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditNetApp">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="id" class="control-label"></label>
+                <input asp-for="id" class="form-control" />
+                <span asp-validation-for="id" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="serviceInstanceId" class="control-label"></label>
+                <input asp-for="serviceInstanceId" class="form-control" />
+                <span asp-validation-for="serviceInstanceId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="serviceType" class="control-label"></label>
+                <input asp-for="serviceType" class="form-control" />
+                <span asp-validation-for="serviceType" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="isReusable" /> @Html.DisplayNameFor(model => model.isReusable)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="desiredStatus" class="control-label"></label>
+                <input asp-for="desiredStatus" class="form-control" />
+                <span asp-validation-for="desiredStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="serviceUrl" class="control-label"></label>
+                <input asp-for="serviceUrl" class="form-control" />
+                <span asp-validation-for="serviceUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="rosVersion" class="control-label"></label>
+                <input asp-for="rosVersion" class="form-control" />
+                <span asp-validation-for="rosVersion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="rosDistro" class="control-label"></label>
+                <input asp-for="rosDistro" class="form-control" />
+                <span asp-validation-for="rosDistro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="instanceFamily" class="control-label"></label>
+                <input asp-for="instanceFamily" class="form-control" />
+                <span asp-validation-for="instanceFamily" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="successRate" class="control-label"></label>
+                <input asp-for="successRate" class="form-control" />
+                <span asp-validation-for="successRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="serviceStatus" class="control-label"></label>
+                <input asp-for="serviceStatus" class="form-control" />
+                <span asp-validation-for="serviceStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="minimumRam" class="control-label"></label>
+                <input asp-for="minimumRam" class="form-control" />
+                <span asp-validation-for="minimumRam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="minimumNumCores" class="control-label"></label>
+                <input asp-for="minimumNumCores" class="form-control" />
+                <span asp-validation-for="minimumNumCores" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="onboardedTime" class="control-label"></label>
+                <input asp-for="onboardedTime" class="form-control" />
+                <span asp-validation-for="onboardedTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+
+            <div class="form-group">
+                <button type="button" class="btn btn-dark"><a asp-controller="Home" asp-action="Index" style="color:white">Back</a></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

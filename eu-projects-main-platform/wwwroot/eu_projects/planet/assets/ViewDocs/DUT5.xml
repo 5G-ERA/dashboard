@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE UnifiedInlandTransportDocument>
+<UnifiedInlandTransportDocument>
+  <MessageHeader>
+    <SenderIdentification>T073</SenderIdentification>
+    <RecipientIdentification>VALENCIAPORT</RecipientIdentification>
+    <Number>2021101191</Number>
+    <DateAndTime>2021-03-02T13:15:07</DateAndTime>
+    <Type>COMPLETE</Type>
+    <Version>1.1</Version>
+    <Function>ORIGINAL</Function>
+  </MessageHeader>
+  <DocumentDetails>
+    <OperationType>IMPORT</OperationType>
+    <TransportType>CARRIER_HAULAGE</TransportType>
+    <IsRailTransport>false</IsRailTransport>
+    <References>
+      <BookingNumber>6288925550</BookingNumber>
+      <BLNumber>6288925550</BLNumber>
+      <ForwarderFileNumber>2021101191</ForwarderFileNumber>
+    </References>
+    <Parties>
+      <Type>CONTRACTING_PARTY</Type>
+      <PCSCode>T073</PCSCode>
+      <Name>Cosco Shipping Lines Spain S.A. (Valencia)</Name>
+      <NationalIdentityNumber>A61361796</NationalIdentityNumber>
+      <DocumentReference>2021COV3318550101</DocumentReference>
+      <StreetAddress>Menorca, 19, planta 11 - Edificio AQUA</StreetAddress>
+      <City>Valencia</City>
+      <UNLOCODE>ESVLC</UNLOCODE>
+      <PostalCode>46023</PostalCode>
+    </Parties>
+    <Parties>
+      <Type>CONTAINER_PROVIDER</Type>
+      <PCSCode>T073</PCSCode>
+      <Name>Cosco Shipping Lines Spain S.A. (Valencia)</Name>
+      <NationalIdentityNumber>A61361796</NationalIdentityNumber>
+      <StreetAddress>Menorca, 19, planta 11 - Edificio AQUA</StreetAddress>
+      <City>Valencia</City>
+      <UNLOCODE>ESVLC</UNLOCODE>
+      <PostalCode>46023</PostalCode>
+    </Parties>
+    <Parties>
+      <Type>TRANSPORT_OPERATOR</Type>
+      <PCSCode>T234</PCSCode>
+      <Name>COMERCIAL DE TRANSPORTES JOMAN S.L.</Name>
+      <NationalIdentityNumber>B46145512</NationalIdentityNumber>
+      <StreetAddress>ALQUERIA DE CULLA 4 8? 804?</StreetAddress>
+      <City>Alfafar</City>
+      <UNLOCODE>ESALF</UNLOCODE>
+      <PostalCode>46910</PostalCode>
+    </Parties>
+    <Parties>
+      <Type>RELEASE_COMPANY</Type>
+      <PCSCode>TTCV</PCSCode>
+      <Name>APM TERMINAL VALENCIA S.A.</Name>
+      <NationalIdentityNumber>A96763206</NationalIdentityNumber>
+      <StreetAddress>Muelle Levante s/n 46024 Valencia</StreetAddress>
+      <City>Valencia</City>
+      <UNLOCODE>ESVLC</UNLOCODE>
+    </Parties>
+    <Parties>
+      <Type>ACCEPTANCE_COMPANY</Type>
+      <PCSCode>MVAL</PCSCode>
+      <Name>CSP IBERIAN VALENCIA TERMINAL S.A.U.</Name>
+      <NationalIdentityNumber>A46604815</NationalIdentityNumber>
+      <StreetAddress>Maritima Valenciana S.A.  Valencia Container Terminal Muelle Principe Felipe  Puerto de Valencia  46024 Valencia</StreetAddress>
+      <City>Valencia</City>
+      <UNLOCODE>ESVLC</UNLOCODE>
+    </Parties>
+    <Parties>
+      <Type>LOGISTICS_OPERATOR</Type>
+      <Name>OPERINTER ANDALUCIA S.L.</Name>
+      <NationalIdentityNumber>B98109457</NationalIdentityNumber>
+      <ContactInformation>
+        <Name>MARITIMO.IMPORTALG</Name>
+        <ContactDetails>
+          <Type>EMAIL</Type>
+          <Details>MARITIMO.IMPORTALG@OPERINTER.COM</Details>
+        </ContactDetails>
+      </ContactInformation>
+    </Parties>
+    <UnloadingVesselDetails>
+      <VesselName>CMA CGM TITUS</VesselName>
+      <Call-sign>2CYR9</Call-sign>
+      <VoyageNumber>030E</VoyageNumber>
+      <BerthRequestNumber>1202100409</BerthRequestNumber>
+    </UnloadingVesselDetails>
+    <Ports>
+      <Function>ORIGIN</Function>
+      <UNLOCODE>AEJEA</UNLOCODE>
+      <Name>Jebel Ali</Name>
+    </Ports>
+    <Ports>
+      <Function>LOADING</Function>
+      <UNLOCODE>AEJEA</UNLOCODE>
+      <Name>Jebel Ali</Name>
+    </Ports>
+    <Ports>
+      <Function>DISCHARGE</Function>
+      <UNLOCODE>ESVLC</UNLOCODE>
+      <Name>Valencia</Name>
+    </Ports>
+    <Ports>
+      <Function>DESTINATION</Function>
+      <UNLOCODE>ESVLC</UNLOCODE>
+      <Name>Valencia</Name>
+    </Ports>
+    <Remarks>
+      <Type>TO_TRANSPORT_OPERATOR</Type>
+      <Remark>Para los casos de transportes del contenedor para su inspección y posterior vuelta a pilas, el portador se compromete a comprobar que el estado del contenedor (lleno o vacío) se corresponde con el indicado en el documento de admítase emitido por COSCO</Remark>
+    </Remarks>
+  </DocumentDetails>
+  <Containers>
+    <Goods>
+      <ItemNumber>1</ItemNumber>
+      <NumberOfPackages>264</NumberOfPackages>
+      <TypeOfPackages>
+        <Code>RL</Code>
+        <Description>BOBBIN</Description>
+      </TypeOfPackages>
+      <Code>5603</Code>
+      <Description>SS NONWOVEN AGRICALTURE CROP C
+OVER 4%UV TREATED</Description>
+      <GrossWeight>10603</GrossWeight>
+    </Goods>
+    <ContainerDetails>
+      <PlateNumber>CSNU7542404</PlateNumber>
+      <ItemNumber>5</ItemNumber>
+      <ISOType>4510</ISOType>
+      <FullOrEmptyState>
+        <Release>FULL</Release>
+        <Acceptance>EMPTY</Acceptance>
+        <FullContainerDetails>FCL</FullContainerDetails>
+      </FullOrEmptyState>
+      <Weights>
+        <Tare>3900</Tare>
+        <Maximum>31480</Maximum>
+      </Weights>
+      <OversizeDimensions />
+      <LoadingUnloadingDetails>
+        <LocationName>CRIADO Y LOPEZ S.L</LocationName>
+        <Reference />
+        <StreetAddress>DERRAMADERO DE CORTES NUMERO 13 - PARAJE LOS ALBIJILLOS</StreetAddress>
+        <City>El Ejido -</City>
+        <PostalCode>04700</PostalCode>
+        <DatesAndTimes>
+          <ProposedByContractingCompany>2021-03-04T15:00:00</ProposedByContractingCompany>
+        </DatesAndTimes>
+      </LoadingUnloadingDetails>
+    </ContainerDetails>
+    <ReleaseDetails>
+      <ReleaseCompany>
+        <PCSCode>TTCV</PCSCode>
+        <Name>APM TERMINAL VALENCIA S.A.</Name>
+        <NationalIdentityNumber>A96763206</NationalIdentityNumber>
+      </ReleaseCompany>
+      <ContainerLine>
+        <Code>CCBC</Code>
+      </ContainerLine>
+      <References>
+        <ContainerProviderReference>T073-REL-2021-331855-1</ContainerProviderReference>
+      </References>
+      <DatesAndTimes>
+        <Expiration>2021-03-05T23:59:00</Expiration>
+      </DatesAndTimes>
+      <Seals>
+        <Provider>CARRIER</Provider>
+        <Value>106256</Value>
+      </Seals>
+    </ReleaseDetails>
+    <AcceptanceDetails>
+      <AcceptanceCompany>
+        <PCSCode>MVAL</PCSCode>
+        <Name>CSP IBERIAN VALENCIA TERMINAL S.A.U.</Name>
+        <NationalIdentityNumber>A46604815</NationalIdentityNumber>
+      </AcceptanceCompany>
+      <ContainerLine>
+        <Code>CCBC</Code>
+      </ContainerLine>
+      <References>
+        <ContainerProviderReference>T073-ACP-2021-331855-1</ContainerProviderReference>
+      </References>
+      <DatesAndTimes>
+        <Expiration>2021-03-09T23:59:00</Expiration>
+      </DatesAndTimes>
+      <Remarks>
+        <Type>TO_ACCEPTANCE_COMPANY</Type>
+        <Remark>Para los casos de transportes del contenedor para su inspección y posterior vuelta a pilas, el portador se compromete a comprobar que el estado del contenedor (lleno o vacío) se corresponde con el indicado en el documento de admítase emitido por COSCO</Remark>
+      </Remarks>
+      <Seals>
+        <Provider>CARRIER</Provider>
+        <Value>106256</Value>
+      </Seals>
+    </AcceptanceDetails>
+  </Containers>
+</UnifiedInlandTransportDocument>

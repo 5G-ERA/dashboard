@@ -1,0 +1,61 @@
+﻿@model eu_projects_main_platform.Models._5gera.GraphRelationship
+
+@{
+    ViewData["Title"] = "GraphRelations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br/>
+<h4>Graph Relationship</h4>
+<hr />
+<br/>
+<div style="align-content:center;">
+    <p>Create relationship between nodes in the graph.</p>
+</div>
+<div class="container">
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="GraphRelations">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <label>Initiates From</label>
+            <div class="form-group">
+                <input asp-for="initiatesFromid" class="form-control" placeholder="Id" required/>
+                <span asp-validation-for="initiatesFromid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                    <input asp-for="initiatesFromtype" class="form-control" placeholder="Type" required />
+                <span asp-validation-for="initiatesFromtype" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                    <input asp-for="initiatesFromname" class="form-control" placeholder="Name" required />
+                <span asp-validation-for="initiatesFromname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                    <input asp-for="relationName" class="form-control" placeholder="Relation Name" required />
+                <span asp-validation-for="relationName" class="text-danger"></span>
+            </div>
+            <label>Points To</label>
+            <div class="form-group">
+                    <input asp-for="pointsToid" class="form-control" placeholder="Id" required />
+                <span asp-validation-for="pointsToid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                    <input asp-for="pointsTotype" class="form-control" placeholder="Type" required />
+                <span asp-validation-for="pointsTotype" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                    <input asp-for="pointsToname" class="form-control" placeholder="Name" required />
+                <span asp-validation-for="pointsToname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-dark"><a asp-controller="Home" asp-action="Index" style="color:white">Back</a></button>
+                </div>
+        </form>
+    </div>
+</div>
+ 
+</div>
+
